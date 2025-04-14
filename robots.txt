@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /assets/fonts/
+Disallow: /assets/js/
+
+Sitemap: https://www.verticalforest.cz/sitemap.xml

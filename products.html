@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Produkty společnosti Vertical Forest s.r.o. - Dřevní pelety, brikety a štěpky. Vysoce kvalitní a ekologicky šetrná tuhá paliva vyrobená z dřevního odpadu.">
+    <meta name="keywords" content="dřevní pelety, dřevní brikety, dřevní štěpky, ekologické palivo, tuhá paliva, Plzeň">
+    <meta name="author" content="Vertical Forest s.r.o.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.verticalforest.cz/products.html">
+    <meta property="og:title" content="Produkty - Vertical Forest s.r.o.">
+    <meta property="og:description" content="Dřevní pelety, brikety a štěpky. Vysoce kvalitní a ekologicky šetrná tuhá paliva vyrobená z dřevního odpadu.">
+    <meta property="og:image" content="assets/images/banner.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.verticalforest.cz/products.html">
+    <meta property="twitter:title" content="Produkty - Vertical Forest s.r.o.">
+    <meta property="twitter:description" content="Dřevní pelety, brikety a štěpky. Vysoce kvalitní a ekologicky šetrná tuhá paliva vyrobená z dřevního odpadu.">
+    <meta property="twitter:image" content="assets/images/banner.png">
+    
+    <title>Produkty - Vertical Forest s.r.o.</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <style>
+        /* Product specific styles */
+        .product-section {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .product-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .product-header h3 {
+            margin: 0;
+            flex-grow: 1;
+        }
+        
+        .product-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+        
+        .product-image {
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .product-details h4 {
+            color: var(--color-primary);
+            margin-top: 0;
+        }
+        
+        .product-features {
+            list-style: none;
+            padding: 0;
+            margin: var(--spacing-md) 0;
+        }
+        
+        .product-features li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .product-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--spacing-lg) 0;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: var(--spacing-sm);
+            text-align: left;
+            border: 1px solid var(--color-border);
+        }
+        
+        .comparison-table th {
+            background-color: var(--color-primary);
+            color: var(--color-text-inverse);
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: var(--color-background-alt);
+        }
+        
+        .comparison-table td:first-child {
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .product-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-image {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Vertical Forest s.r.o.</h1>
+                </a>
+            </div>
+            
+            <nav class="main-nav">
+                <button class="mobile-menu-toggle" aria-label="Otevřít menu">
+                    <span class="hamburger-icon"></span>
+                </button>
+                
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html">Úvod</a></li>
+                    <li class="nav-item"><a href="about.html">O nás</a></li>
+                    <li class="nav-item active"><a href="products.html">Produkty</a></li>
+                    <li class="nav-item"><a href="processing.html">Zpracování</a></li>
+                    <li class="nav-item"><a href="technology.html">Technologie</a></li>
+                    <li class="nav-item"><a href="sustainability.html">Udržitelnost</a></li>
+                    <li class="nav-item"><a href="gallery.html">Galerie</a></li>
+                    <li class="nav-item"><a href="contact.html">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header bg-primary">
+            <div class="container">
+                <h2 class="text-white">Naše produkty</h2>
+                <p class="text-white">Efektivní a ekologická paliva pro vaše potřeby</p>
+            </div>
+        </section>
+
+        <!-- Products Overview -->
+        <section class="products-overview">
+            <div class="container">
+                <p>Nabízíme širokou škálu vysoce kvalitních tuhých paliv, která jsou ideální pro vytápění domácností, komerčních prostor i průmyslových objektů. Všechny naše produkty jsou vyráběny z pečlivě vybraného dřevního odpadu, který zpracováváme pomocí moderních technologií.</p>
+            </div>
+        </section>
+
+        <!-- Product: Pellets -->
+        <section id="pellets" class="product-section bg-light">
+            <div class="container">
+                <div class="product-header">
+                    <h3>Dřevní pelety</h3>
+                </div>
+                
+                <div class="product-content">
+                    <div class="product-details">
+                        <h4>Vysoce výhřevné pelety s nízkým obsahem vlhkosti a popela</h4>
+                        <p>Naše dřevní pelety jsou vyráběné z lisovaného dřevního odpadu. Díky vysokému tlaku při lisování a nízkému obsahu vlhkosti dosahují vynikající výhřevnosti a dlouhé doby hoření.</p>
+                        
+                        <ul class="product-features">
+                            <li>Vysoká výhřevnost (až 18 MJ/kg)</li>
+                            <li>Nízký obsah vlhkosti (pod 10%)</li>
+                            <li>Minimální obsah popela (pod 0,7%)</li>
+                            <li>Standardizovaný rozměr (průměr 6 mm)</li>
+                            <li>Vhodné pro automatické kotle na pelety</li>
+                            <li>Ekologicky šetrné palivo</li>
+                        </ul>
+                        
+                        <p>Pelety jsou baleny v praktických 15kg pytlích nebo velkoobjemových 1000kg big-bag vacích. Možnost dodání také volně ložené.</p>
+                        
+                        <a href="contact.html" class="btn btn-primary">Kontaktujte nás pro nabídku</a>
+                    </div>
+                    
+                    <div class="product-image">
+                        <img src="assets/images/products/pellets.svg" alt="Dřevní pelety" width="600" height="400">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product: Briquettes -->
+        <section id="briquettes" class="product-section">
+            <div class="container">
+                <div class="product-header">
+                    <h3>Dřevní brikety</h3>
+                </div>
+                
+                <div class="product-content">
+                    <div class="product-image">
+                        <img src="assets/images/products/briquettes.svg" alt="Dřevní brikety" width="600" height="400">
+                    </div>
+                    
+                    <div class="product-details">
+                        <h4>Kompaktní palivo s dlouhou dobou hoření a vysokou výhřevností</h4>
+                        <p>Dřevní brikety jsou vyráběny lisováním dřevního odpadu pod vysokým tlakem bez použití pojiv. Díky své vysoké hustotě poskytují dlouhou dobu hoření a stabilní tepelný výkon.</p>
+                        
+                        <ul class="product-features">
+                            <li>Vysoká výhřevnost (až 19 MJ/kg)</li>
+                            <li>Dlouhá doba hoření (až 4 hodiny)</li>
+                            <li>Nízký obsah vlhkosti (pod 10%)</li>
+                            <li>Minimální obsah popela (pod 1%)</li>
+                            <li>Vhodné pro krby, kachlová kamna a kotle na tuhá paliva</li>
+                            <li>Snadné skladování a manipulace</li>
+                        </ul>
+                        
+                        <p>Brikety jsou baleny v praktických 10kg baleních nebo na paletách. Nabízíme různé tvary briket podle potřeb zákazníka.</p>
+                        
+                        <a href="contact.html" class="btn btn-primary">Kontaktujte nás pro nabídku</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product: Wood Chips -->
+        <section id="chips" class="product-section bg-light">
+            <div class="container">
+                <div class="product-header">
+                    <h3>Dřevní štěpky</h3>
+                </div>
+                
+                <div class="product-content">
+                    <div class="product-details">
+                        <h4>Cenově dostupné palivo vhodné pro automatické kotle a teplárny</h4>
+                        <p>Dřevní štěpky jsou drobné kousky dřeva vyráběné drcením dřevního odpadu. Jedná se o cenově výhodné palivo s dobrými vlastnostmi pro automatické kotle a teplárny.</p>
+                        
+                        <ul class="product-features">
+                            <li>Střední výhřevnost (14-16 MJ/kg)</li>
+                            <li>Vyšší obsah vlhkosti (20-30%)</li>
+                            <li>Vyšší obsah popela (1-2%)</li>
+                            <li>Vhodné pro automatické kotle a teplárny</li>
+                            <li>Ekonomicky výhodné palivo</li>
+                            <li>Možnost dodání v různých frakcích</li>
+                        </ul>
+                        
+                        <p>Štěpky dodáváme volně ložené nebo v big-bag vacích. Možnost pravidelných dodávek podle potřeb zákazníka.</p>
+                        
+                        <a href="contact.html" class="btn btn-primary">Kontaktujte nás pro nabídku</a>
+                    </div>
+                    
+                    <div class="product-image">
+                        <img src="assets/images/products/chips.svg" alt="Dřevní štěpky" width="600" height="400">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section class="comparison-section">
+            <div class="container">
+                <h3 class="text-center">Srovnání vlastností</h3>
+                
+                <div class="table-responsive">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Vlastnost</th>
+                                <th>Dřevní pelety</th>
+                                <th>Dřevní brikety</th>
+                                <th>Dřevní štěpky</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Výhřevnost</td>
+                                <td>Vysoká (18 MJ/kg)</td>
+                                <td>Vysoká (19 MJ/kg)</td>
+                                <td>Střední (14-16 MJ/kg)</td>
+                            </tr>
+                            <tr>
+                                <td>Obsah vlhkosti</td>
+                                <td>Nízký (pod 10%)</td>
+                                <td>Nízký (pod 10%)</td>
+                                <td>Vyšší (20-30%)</td>
+                            </tr>
+                            <tr>
+                                <td>Obsah popela</td>
+                                <td>Nízký (pod 0,7%)</td>
+                                <td>Nízký (pod 1%)</td>
+                                <td>Vyšší (1-2%)</td>
+                            </tr>
+                            <tr>
+                                <td>Použití</td>
+                                <td>Kotle na pelety</td>
+                                <td>Krby, kotle</td>
+                                <td>Automatické kotle, teplárny</td>
+                            </tr>
+                            <tr>
+                                <td>Cena</td>
+                                <td>Vyšší</td>
+                                <td>Střední</td>
+                                <td>Nižší</td>
+                            </tr>
+                            <tr>
+                                <td>Skladování</td>
+                                <td>Snadné, kompaktní</td>
+                                <td>Snadné, kompaktní</td>
+                                <td>Náročnější na prostor</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section bg-primary">
+            <div class="container text-center">
+                <h3 class="text-white">Hledáte kvalitní a ekologické palivo?</h3>
+                <p class="text-white">Kontaktujte nás pro více informací nebo nezávaznou nabídku.</p>
+                <a href="contact.html" class="btn btn-secondary">Kontaktujte nás</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h3>Vertical Forest s.r.o.</h3>
+                    <p>Zpracování dřevního odpadu a výroba ekologicky šetrných tuhých paliv.</p>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Kontaktní údaje</h3>
+                    <address>
+                        U Borského parku 2887/27<br>
+                        Jižní Předměstí<br>
+                        301 00 Plzeň<br>
+                        Telefon: <a href="tel:+420602444455">+420 602 444 455</a><br>
+                        Datová schránka: p2xm83g
+                    </address>
+                </div>
+                
+                <div class="footer-nav">
+                    <h3>Navigace</h3>
+                    <ul>
+                        <li><a href="index.html">Úvod</a></li>
+                        <li><a href="about.html">O nás</a></li>
+                        <li><a href="products.html">Produkty</a></li>
+                        <li><a href="processing.html">Zpracování</a></li>
+                        <li><a href="technology.html">Technologie</a></li>
+                        <li><a href="sustainability.html">Udržitelnost</a></li>
+                        <li><a href="gallery.html">Galerie</a></li>
+                        <li><a href="contact.html">Kontakt</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Vertical Forest s.r.o. Všechna práva vyhrazena.</p>
+                <div class="footer-legal">
+                    <a href="#">Zásady ochrany osobních údajů</a>
+                    <a href="#">Obchodní podmínky</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>

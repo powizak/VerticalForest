@@ -1,0 +1,259 @@
+/* 
+ * Vertical Forest s.r.o. - Responsive Stylesheet
+ * This file contains the responsive styles for the Vertical Forest website
+ */
+
+/* ===== Media Queries ===== */
+
+/* Extra small devices (phones, 576px and down) */
+@media (max-width: 576px) {
+    :root {
+        --font-size-base: 14px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+    }
+    
+    section {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .hero {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .benefits-grid,
+    .products-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .footer-legal {
+        margin-top: var(--spacing-sm);
+        flex-direction: column;
+    }
+    
+    .footer-legal a {
+        margin-left: 0;
+        margin-top: var(--spacing-sm);
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .benefits-grid,
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .benefits-grid,
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    /* Styles for large devices remain the same as base styles */
+}
+
+/* Mobile Navigation */
+@media (max-width: 991.98px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .nav-list {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--color-background);
+        flex-direction: column;
+        padding: var(--spacing-xl) var(--spacing-lg);
+        box-shadow: var(--shadow-lg);
+        transition: right var(--transition-medium);
+        z-index: 1000;
+    }
+    
+    .nav-list.active {
+        right: 0;
+    }
+    
+    .nav-item {
+        margin: 0 0 var(--spacing-md) 0;
+    }
+    
+    .nav-item a {
+        padding: var(--spacing-sm) 0;
+        font-size: 1.1rem;
+    }
+    
+    .mobile-menu-toggle.active .hamburger-icon {
+        background-color: transparent;
+    }
+    
+    .mobile-menu-toggle.active .hamburger-icon::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+    
+    .mobile-menu-toggle.active .hamburger-icon::after {
+        transform: rotate(-45deg);
+        bottom: 0;
+    }
+    
+    body.menu-open {
+        overflow: hidden;
+    }
+    
+    .menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+    
+    .menu-overlay.active {
+        display: block;
+    }
+}
+
+/* Responsive Images */
+@media (max-width: 767.98px) {
+    .product-image {
+        height: 180px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .site-header,
+    .site-footer,
+    .btn {
+        display: none;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+        color: #000;
+        background: #fff;
+    }
+    
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+    
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+    
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    .hero {
+        padding: 1cm 0;
+        background-image: none;
+        color: #000;
+    }
+    
+    .hero::before {
+        display: none;
+    }
+    
+    .hero h2 {
+        color: #000;
+    }
+    
+    table {
+        page-break-inside: avoid;
+    }
+    
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+    
+    thead {
+        display: table-header-group;
+    }
+    
+    tfoot {
+        display: table-footer-group;
+    }
+}
+
+/* High-DPI Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Provide higher resolution images if needed */
+}
+
+/* Dark Mode Support (if user has dark mode enabled) */
+@media (prefers-color-scheme: dark) {
+    /* We're not implementing dark mode by default, but this is where it would go */
+    /* Uncomment to enable
+    :root {
+        --color-background: #121212;
+        --color-background-alt: #1e1e1e;
+        --color-text: #e0e0e0;
+        --color-text-light: #a0a0a0;
+        --color-border: #333333;
+    }
+    */
+}
+
+/* Reduced Motion (accessibility) */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

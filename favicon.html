@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        canvas {
+            border: 1px solid #ccc;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1b5e20;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vertical Forest Favicon Generator</h1>
+    <p>This page generates a simple favicon for the Vertical Forest website. Click the button below to download the favicon.</p>
+    
+    <canvas id="faviconCanvas" width="64" height="64"></canvas>
+    <br>
+    <button id="downloadBtn">Download Favicon</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('faviconCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Draw background
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, 64, 64);
+            
+            // Draw circle
+            ctx.beginPath();
+            ctx.arc(32, 32, 30, 0, Math.PI * 2);
+            ctx.strokeStyle = '#2e7d32';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            
+            // Draw stylized "VF" letters
+            ctx.fillStyle = '#2e7d32';
+            ctx.font = 'bold 28px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('VF', 32, 32);
+            
+            // Download button functionality
+            document.getElementById('downloadBtn').addEventListener('click', function() {
+                // Create a link element
+                const link = document.createElement('a');
+                
+                // Convert canvas to data URL
+                const dataURL = canvas.toDataURL('image/png');
+                
+                // Set link attributes
+                link.download = 'favicon.ico';
+                link.href = dataURL;
+                
+                // Append to body, click, and remove
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+        });
+    </script>
+</body>
+</html>

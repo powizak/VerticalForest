@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Technologie používané ve společnosti Vertical Forest s.r.o. - Moderní vybavení pro výrobu vysoce kvalitních tuhých paliv z dřevního odpadu.">
+    <meta name="keywords" content="technologie, dřevní odpad, drcení, třídění, sušení, peletování, briketování, Plzeň">
+    <meta name="author" content="Vertical Forest s.r.o.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.verticalforest.cz/technology.html">
+    <meta property="og:title" content="Technologie - Vertical Forest s.r.o.">
+    <meta property="og:description" content="Moderní vybavení pro výrobu vysoce kvalitních tuhých paliv z dřevního odpadu.">
+    <meta property="og:image" content="assets/images/banner.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.verticalforest.cz/technology.html">
+    <meta property="twitter:title" content="Technologie - Vertical Forest s.r.o.">
+    <meta property="twitter:description" content="Moderní vybavení pro výrobu vysoce kvalitních tuhých paliv z dřevního odpadu.">
+    <meta property="twitter:image" content="assets/images/banner.png">
+    
+    <title>Technologie - Vertical Forest s.r.o.</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <style>
+        /* Technology specific styles */
+        .tech-card {
+            background-color: var(--color-background);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            margin-bottom: var(--spacing-lg);
+            transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .tech-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .tech-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-medium);
+        }
+        
+        .tech-card:hover .tech-image img {
+            transform: scale(1.05);
+        }
+        
+        .tech-content {
+            padding: var(--spacing-md) var(--spacing-lg);
+        }
+        
+        .tech-content h4 {
+            color: var(--color-primary);
+            margin-top: 0;
+        }
+        
+        .tech-specs {
+            margin-top: var(--spacing-md);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--color-border);
+        }
+        
+        .tech-specs h5 {
+            margin-top: 0;
+            margin-bottom: var(--spacing-sm);
+            font-size: 1rem;
+        }
+        
+        .specs-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .specs-list li {
+            display: flex;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .specs-list .spec-name {
+            font-weight: bold;
+            min-width: 120px;
+        }
+        
+        .quality-control {
+            background-color: var(--color-background-alt);
+            padding: var(--spacing-xl) 0;
+            margin-top: var(--spacing-xl);
+        }
+        
+        .quality-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .quality-item {
+            background-color: var(--color-background);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .quality-item h4 {
+            color: var(--color-primary);
+            margin-top: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .tech-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Vertical Forest s.r.o.</h1>
+                </a>
+            </div>
+            
+            <nav class="main-nav">
+                <button class="mobile-menu-toggle" aria-label="Otevřít menu">
+                    <span class="hamburger-icon"></span>
+                </button>
+                
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html">Úvod</a></li>
+                    <li class="nav-item"><a href="about.html">O nás</a></li>
+                    <li class="nav-item"><a href="products.html">Produkty</a></li>
+                    <li class="nav-item"><a href="processing.html">Zpracování</a></li>
+                    <li class="nav-item active"><a href="technology.html">Technologie</a></li>
+                    <li class="nav-item"><a href="sustainability.html">Udržitelnost</a></li>
+                    <li class="nav-item"><a href="gallery.html">Galerie</a></li>
+                    <li class="nav-item"><a href="contact.html">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header bg-primary">
+            <div class="container">
+                <h2 class="text-white">Technologie</h2>
+                <p class="text-white">Moderní vybavení pro vysokou kvalitu</p>
+            </div>
+        </section>
+
+        <!-- Technology Overview -->
+        <section class="tech-overview">
+            <div class="container">
+                <h3>Naše technologické vybavení</h3>
+                <p>V našem výrobním procesu využíváme moderní technologie, které nám umožňují dosahovat vysoké kvality a efektivity. Investujeme do nejnovějších zařízení a pravidelně modernizujeme naše výrobní linky, abychom zajistili maximální efektivitu a minimální dopad na životní prostředí.</p>
+                
+                <p>Díky modernímu vybavení a odbornému personálu garantujeme vysokou kvalitu našich produktů a spolehlivost dodávek.</p>
+            </div>
+        </section>
+
+        <!-- Key Technologies -->
+        <section class="key-technologies">
+            <div class="container">
+                <h3>Klíčové technologie</h3>
+                
+                <!-- Drtiče -->
+                <div class="tech-card">
+                    <div class="tech-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='250' viewBox='0 0 800 250'%3E%3Crect width='800' height='250' fill='%23f5f5f5'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' text-anchor='middle' dominant-baseline='middle' fill='%23333333'%3EDrtiče dřevního odpadu%3C/text%3E%3C/svg%3E" alt="Drtiče dřevního odpadu" width="800" height="250">
+                    </div>
+                    <div class="tech-content">
+                        <h4>Drtiče dřevního odpadu</h4>
+                        <p>Naše výkonné drtiče jsou schopny zpracovat různé druhy dřevního odpadu, od větví a kmenů až po odřezky z dřevozpracujícího průmyslu. Díky vyměnitelným sítkům můžeme nastavit požadovanou velikost výstupního materiálu podle potřeby dalšího zpracování.</p>
+                        
+                        <div class="tech-specs">
+                            <h5>Technické specifikace:</h5>
+                            <ul class="specs-list">
+                                <li><span class="spec-name">Kapacita:</span> až 5 tun/hodinu</li>
+                                <li><span class="spec-name">Příkon:</span> 75 kW</li>
+                                <li><span class="spec-name">Max. průměr:</span> 300 mm</li>
+                                <li><span class="spec-name">Výstupní frakce:</span> 5-50 mm (nastavitelná)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Třídící linky -->
+                <div class="tech-card">
+                    <div class="tech-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='250' viewBox='0 0 800 250'%3E%3Crect width='800' height='250' fill='%23f5f5f5'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' text-anchor='middle' dominant-baseline='middle' fill='%23333333'%3ETřídící linky%3C/text%3E%3C/svg%3E" alt="Třídící linky" width="800" height="250">
+                    </div>
+                    <div class="tech-content">
+                        <h4>Třídící linky</h4>
+                        <p>Naše automatizované třídící linky zajišťují oddělení nežádoucích příměsí a třídění materiálu podle velikosti. Využíváme kombinaci mechanického a optického třídění, které zajišťuje vysokou čistotu výstupního materiálu.</p>
+                        
+                        <div class="tech-specs">
+                            <h5>Technické specifikace:</h5>
+                            <ul class="specs-list">
+                                <li><span class="spec-name">Kapacita:</span> až 4 tuny/hodinu</li>
+                                <li><span class="spec-name">Příkon:</span> 30 kW</li>
+                                <li><span class="spec-name">Třídící frakce:</span> 3 velikostní kategorie</li>
+                                <li><span class="spec-name">Detekce:</span> Optické a magnetické senzory</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sušárny -->
+                <div class="tech-card">
+                    <div class="tech-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='250' viewBox='0 0 800 250'%3E%3Crect width='800' height='250' fill='%23f5f5f5'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' text-anchor='middle' dominant-baseline='middle' fill='%23333333'%3ESušárny%3C/text%3E%3C/svg%3E" alt="Sušárny" width="800" height="250">
+                    </div>
+                    <div class="tech-content">
+                        <h4>Sušárny</h4>
+                        <p>Naše energeticky úsporné sušárny využívají rekuperaci tepla a optimalizované proudění vzduchu k efektivnímu snížení vlhkosti materiálu. Přesné řízení teploty a času sušení zajišťuje optimální výsledky při minimální spotřebě energie.</p>
+                        
+                        <div class="tech-specs">
+                            <h5>Technické specifikace:</h5>
+                            <ul class="specs-list">
+                                <li><span class="spec-name">Kapacita:</span> až 3 tuny/hodinu</li>
+                                <li><span class="spec-name">Příkon:</span> 120 kW</li>
+                                <li><span class="spec-name">Max. teplota:</span> 120°C</li>
+                                <li><span class="spec-name">Výstupní vlhkost:</span> 8-12% (nastavitelná)</li>
+                                <li><span class="spec-name">Rekuperace:</span> až 60% tepelné energie</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Peletovací linky -->
+                <div class="tech-card">
+                    <div class="tech-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='250' viewBox='0 0 800 250'%3E%3Crect width='800' height='250' fill='%23f5f5f5'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' text-anchor='middle' dominant-baseline='middle' fill='%23333333'%3EPeletovací linky%3C/text%3E%3C/svg%3E" alt="Peletovací linky" width="800" height="250">
+                    </div>
+                    <div class="tech-content">
+                        <h4>Peletovací linky</h4>
+                        <p>Naše peletovací linky využívají vysoký tlak a teplotu k výrobě vysoce kvalitních pelet bez použití chemických pojiv. Přesné řízení procesu zajišťuje konzistentní kvalitu a vlastnosti finálních produktů.</p>
+                        
+                        <div class="tech-specs">
+                            <h5>Technické specifikace:</h5>
+                            <ul class="specs-list">
+                                <li><span class="spec-name">Kapacita:</span> až 2 tuny/hodinu</li>
+                                <li><span class="spec-name">Příkon:</span> 90 kW</li>
+                                <li><span class="spec-name">Průměr pelet:</span> 6 mm (standardní)</li>
+                                <li><span class="spec-name">Lisovací tlak:</span> až 300 MPa</li>
+                                <li><span class="spec-name">Automatizace:</span> Plně automatizovaný proces</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Briketovací lisy -->
+                <div class="tech-card">
+                    <div class="tech-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='250' viewBox='0 0 800 250'%3E%3Crect width='800' height='250' fill='%23f5f5f5'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' text-anchor='middle' dominant-baseline='middle' fill='%23333333'%3EBriketovací lisy%3C/text%3E%3C/svg%3E" alt="Briketovací lisy" width="800" height="250">
+                    </div>
+                    <div class="tech-content">
+                        <h4>Briketovací lisy</h4>
+                        <p>Naše hydraulické briketovací lisy umožňují výrobu vysoce kompaktních briket s vysokou hustotou a výhřevností. Díky možnosti nastavení tlaku a rychlosti lisování můžeme optimalizovat vlastnosti briket podle požadavků zákazníků.</p>
+                        
+                        <div class="tech-specs">
+                            <h5>Technické specifikace:</h5>
+                            <ul class="specs-list">
+                                <li><span class="spec-name">Kapacita:</span> až 1,5 tuny/hodinu</li>
+                                <li><span class="spec-name">Příkon:</span> 55 kW</li>
+                                <li><span class="spec-name">Průměr briket:</span> 65 mm (standardní)</li>
+                                <li><span class="spec-name">Lisovací tlak:</span> až 200 MPa</li>
+                                <li><span class="spec-name">Délka briket:</span> 30-300 mm (nastavitelná)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quality Control -->
+        <section class="quality-control">
+            <div class="container">
+                <h3 class="text-center">Kontrola kvality</h3>
+                <p>Kvalita našich produktů je pro nás prioritou. Proto máme zavedený komplexní systém kontroly kvality, který zahrnuje testování vstupních materiálů, průběžnou kontrolu výrobního procesu a testování finálních produktů.</p>
+                
+                <div class="quality-grid">
+                    <div class="quality-item">
+                        <h4>Laboratorní testování</h4>
+                        <p>Naše laboratoř je vybavena moderními přístroji pro testování klíčových parametrů našich produktů, jako je výhřevnost, obsah vlhkosti, hustota a mechanická odolnost.</p>
+                    </div>
+                    
+                    <div class="quality-item">
+                        <h4>Průběžná kontrola</h4>
+                        <p>Během výrobního procesu provádíme pravidelné kontroly, které zajišťují dodržování stanovených parametrů a včasné odhalení případných odchylek.</p>
+                    </div>
+                    
+                    <div class="quality-item">
+                        <h4>Certifikace</h4>
+                        <p>Naše produkty splňují přísné evropské normy a jsou certifikovány podle standardů ENplus a DINplus, které garantují jejich vysokou kvalitu.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section bg-primary">
+            <div class="container text-center">
+                <h3 class="text-white">Máte zájem o prohlídku našeho výrobního závodu?</h3>
+                <p class="text-white">Kontaktujte nás pro domluvení termínu návštěvy.</p>
+                <a href="contact.html" class="btn btn-secondary">Kontaktujte nás</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h3>Vertical Forest s.r.o.</h3>
+                    <p>Zpracování dřevního odpadu a výroba ekologicky šetrných tuhých paliv.</p>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Kontaktní údaje</h3>
+                    <address>
+                        U Borského parku 2887/27<br>
+                        Jižní Předměstí<br>
+                        301 00 Plzeň<br>
+                        Telefon: <a href="tel:+420602444455">+420 602 444 455</a><br>
+                        Datová schránka: p2xm83g
+                    </address>
+                </div>
+                
+                <div class="footer-nav">
+                    <h3>Navigace</h3>
+                    <ul>
+                        <li><a href="index.html">Úvod</a></li>
+                        <li><a href="about.html">O nás</a></li>
+                        <li><a href="products.html">Produkty</a></li>
+                        <li><a href="processing.html">Zpracování</a></li>
+                        <li><a href="technology.html">Technologie</a></li>
+                        <li><a href="sustainability.html">Udržitelnost</a></li>
+                        <li><a href="gallery.html">Galerie</a></li>
+                        <li><a href="contact.html">Kontakt</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Vertical Forest s.r.o. Všechna práva vyhrazena.</p>
+                <div class="footer-legal">
+                    <a href="#">Zásady ochrany osobních údajů</a>
+                    <a href="#">Obchodní podmínky</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>

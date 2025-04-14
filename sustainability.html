@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Udržitelnost ve společnosti Vertical Forest s.r.o. - Naše odpovědnost k životnímu prostředí a přínos k cirkulární ekonomice.">
+    <meta name="keywords" content="udržitelnost, cirkulární ekonomika, dřevní odpad, ekologické palivo, obnovitelné zdroje, Plzeň">
+    <meta name="author" content="Vertical Forest s.r.o.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.verticalforest.cz/sustainability.html">
+    <meta property="og:title" content="Udržitelnost - Vertical Forest s.r.o.">
+    <meta property="og:description" content="Naše odpovědnost k životnímu prostředí a přínos k cirkulární ekonomice.">
+    <meta property="og:image" content="assets/images/banner.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.verticalforest.cz/sustainability.html">
+    <meta property="twitter:title" content="Udržitelnost - Vertical Forest s.r.o.">
+    <meta property="twitter:description" content="Naše odpovědnost k životnímu prostředí a přínos k cirkulární ekonomice.">
+    <meta property="twitter:image" content="assets/images/banner.png">
+    
+    <title>Udržitelnost - Vertical Forest s.r.o.</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <style>
+        /* Sustainability specific styles */
+        .sustainability-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--spacing-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-primary-light);
+            border-radius: 50%;
+            color: var(--color-text-inverse);
+            font-size: 2rem;
+        }
+        
+        .sustainability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-xl) 0;
+        }
+        
+        .sustainability-card {
+            background-color: var(--color-background);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+        }
+        
+        .sustainability-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .sustainability-card h4 {
+            color: var(--color-primary);
+            margin-top: 0;
+        }
+        
+        .impact-section {
+            background-color: var(--color-background-alt);
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+            text-align: center;
+        }
+        
+        .impact-item {
+            padding: var(--spacing-md);
+        }
+        
+        .impact-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .impact-label {
+            font-size: 1rem;
+            color: var(--color-text);
+        }
+        
+        .goals-list {
+            list-style: none;
+            padding: 0;
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .goals-list li {
+            position: relative;
+            padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) 3rem;
+            margin-bottom: var(--spacing-md);
+            background-color: var(--color-background);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .goals-list li::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            background-color: var(--color-primary);
+            border-radius: 50%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            background-size: 16px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .goals-list h4 {
+            margin-top: 0;
+            color: var(--color-primary);
+        }
+        
+        @media (max-width: 768px) {
+            .impact-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Vertical Forest s.r.o.</h1>
+                </a>
+            </div>
+            
+            <nav class="main-nav">
+                <button class="mobile-menu-toggle" aria-label="Otevřít menu">
+                    <span class="hamburger-icon"></span>
+                </button>
+                
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html">Úvod</a></li>
+                    <li class="nav-item"><a href="about.html">O nás</a></li>
+                    <li class="nav-item"><a href="products.html">Produkty</a></li>
+                    <li class="nav-item"><a href="processing.html">Zpracování</a></li>
+                    <li class="nav-item"><a href="technology.html">Technologie</a></li>
+                    <li class="nav-item active"><a href="sustainability.html">Udržitelnost</a></li>
+                    <li class="nav-item"><a href="gallery.html">Galerie</a></li>
+                    <li class="nav-item"><a href="contact.html">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header bg-primary">
+            <div class="container">
+                <h2 class="text-white">Udržitelnost</h2>
+                <p class="text-white">Naše odpovědnost k životnímu prostředí</p>
+            </div>
+        </section>
+
+        <!-- Sustainability Overview -->
+        <section class="sustainability-overview">
+            <div class="container">
+                <h3>Náš přístup k udržitelnosti</h3>
+                <p>Udržitelnost je pro nás klíčovým principem. Využíváním dřevního odpadu aktivně přispíváme ke snižování množství odpadu na skládkách a jeho přeměně na hodnotný zdroj energie. Naše tuhá paliva jsou ekologickou alternativou k fosilním palivům, protože při jejich spalování dochází k nižším emisím skleníkových plynů.</p>
+                
+                <p>Lokální původ dřevního odpadu navíc snižuje transportní náročnost a podporuje regionální ekonomiku. Volbou našich paliv přispíváte i vy k ochraně životního prostředí.</p>
+                
+                <div class="sustainability-grid">
+                    <div class="sustainability-card">
+                        <div class="sustainability-icon">♻️</div>
+                        <h4>Cirkulární ekonomika</h4>
+                        <p>Přeměňujeme odpad na hodnotný zdroj energie, čímž přispíváme k principům cirkulární ekonomiky a efektivnímu využívání zdrojů.</p>
+                    </div>
+                    
+                    <div class="sustainability-card">
+                        <div class="sustainability-icon">🌱</div>
+                        <h4>Obnovitelné zdroje</h4>
+                        <p>Naše produkty jsou vyráběny z obnovitelných zdrojů, což přispívá k udržitelnému využívání přírodních zdrojů a snižování závislosti na fosilních palivech.</p>
+                    </div>
+                    
+                    <div class="sustainability-card">
+                        <div class="sustainability-icon">🏭</div>
+                        <h4>Nižší emise</h4>
+                        <p>Spalování našich paliv produkuje výrazně nižší emise skleníkových plynů ve srovnání s fosilními palivy, což přispívá k ochraně klimatu.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Environmental Impact -->
+        <section class="impact-section">
+            <div class="container">
+                <h3 class="text-center">Náš environmentální dopad</h3>
+                <p class="text-center">Díky našemu udržitelnému přístupu a efektivním technologiím jsme v roce 2024 dosáhli následujících výsledků:</p>
+                
+                <div class="impact-grid">
+                    <div class="impact-item">
+                        <div class="impact-number">15 000+</div>
+                        <div class="impact-label">tun zpracovaného dřevního odpadu</div>
+                    </div>
+                    
+                    <div class="impact-item">
+                        <div class="impact-number">7 500+</div>
+                        <div class="impact-label">tun CO₂ ušetřeno oproti fosilním palivům</div>
+                    </div>
+                    
+                    <div class="impact-item">
+                        <div class="impact-number">95%</div>
+                        <div class="impact-label">využití vstupního materiálu</div>
+                    </div>
+                    
+                    <div class="impact-item">
+                        <div class="impact-number">30%</div>
+                        <div class="impact-label">snížení spotřeby energie díky optimalizaci</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sustainability Goals -->
+        <section class="goals-section">
+            <div class="container">
+                <h3>Naše cíle udržitelnosti</h3>
+                <p>Ve Vertical Forest s.r.o. jsme si stanovili ambiciózní cíle v oblasti udržitelnosti, které chceme dosáhnout do roku 2030:</p>
+                
+                <ul class="goals-list">
+                    <li>
+                        <h4>Uhlíková neutralita</h4>
+                        <p>Dosáhnout uhlíkové neutrality v našich výrobních procesech prostřednictvím zvýšení energetické účinnosti, využívání obnovitelných zdrojů energie a kompenzace nevyhnutelných emisí.</p>
+                    </li>
+                    
+                    <li>
+                        <h4>Nulový odpad</h4>
+                        <p>Implementovat systém nulového odpadu, kde 100% vstupního materiálu bude přeměněno na hodnotné produkty nebo vedlejší produkty.</p>
+                    </li>
+                    
+                    <li>
+                        <h4>Snížení spotřeby vody</h4>
+                        <p>Snížit spotřebu vody o 50% prostřednictvím recyklace a optimalizace výrobních procesů.</p>
+                    </li>
+                    
+                    <li>
+                        <h4>Udržitelný dodavatelský řetězec</h4>
+                        <p>Spolupracovat pouze s dodavateli, kteří sdílejí naše hodnoty a závazky v oblasti udržitelnosti a odpovědného přístupu k životnímu prostředí.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="certifications-section bg-light">
+            <div class="container">
+                <h3 class="text-center">Certifikace a standardy</h3>
+                <p>Naše závazky v oblasti udržitelnosti jsou podpořeny mezinárodně uznávanými certifikacemi a standardy:</p>
+                
+                <div class="sustainability-grid">
+                    <div class="sustainability-card">
+                        <div class="sustainability-icon">🏆</div>
+                        <h4>ISO 14001</h4>
+                        <p>Certifikace systému environmentálního managementu, která potvrzuje náš závazek k ochraně životního prostředí a prevenci znečištění.</p>
+                    </div>
+                    
+                    <div class="sustainability-card">
+                        <div class="sustainability-icon">🏆</div>
+                        <h4>ENplus</h4>
+                        <p>Certifikace kvality dřevních pelet, která garantuje jejich vysokou kvalitu a udržitelný původ.</p>
+                    </div>
+                    
+                    <div class="sustainability-card">
+                        <div class="sustainability-icon">🏆</div>
+                        <h4>FSC Chain of Custody</h4>
+                        <p>Certifikace, která potvrzuje, že naše produkty pocházejí z odpovědně obhospodařovaných lesů a kontrolovaných zdrojů.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Engagement -->
+        <section class="community-section">
+            <div class="container">
+                <h3>Zapojení do komunity</h3>
+                <p>Věříme, že udržitelnost zahrnuje také sociální odpovědnost a zapojení do místní komunity. Proto se aktivně podílíme na následujících iniciativách:</p>
+                
+                <div class="sustainability-grid">
+                    <div class="sustainability-card">
+                        <div class="sustainability-icon">🌳</div>
+                        <h4>Výsadba stromů</h4>
+                        <p>Za každých 100 tun prodaných produktů vysadíme 10 nových stromů ve spolupráci s místními lesními správami.</p>
+                    </div>
+                    
+                    <div class="sustainability-card">
+                        <div class="sustainability-icon">🎓</div>
+                        <h4>Vzdělávací programy</h4>
+                        <p>Organizujeme vzdělávací programy pro školy a veřejnost o udržitelném využívání zdrojů a cirkulární ekonomice.</p>
+                    </div>
+                    
+                    <div class="sustainability-card">
+                        <div class="sustainability-icon">🤝</div>
+                        <h4>Podpora místních iniciativ</h4>
+                        <p>Podporujeme místní environmentální iniciativy a projekty zaměřené na ochranu přírody a udržitelný rozvoj.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section bg-primary">
+            <div class="container text-center">
+                <h3 class="text-white">Přidejte se k nám na cestě k udržitelnosti</h3>
+                <p class="text-white">Volbou našich produktů přispíváte k ochraně životního prostředí a podpoře udržitelného rozvoje.</p>
+                <a href="contact.html" class="btn btn-secondary">Kontaktujte nás</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h3>Vertical Forest s.r.o.</h3>
+                    <p>Zpracování dřevního odpadu a výroba ekologicky šetrných tuhých paliv.</p>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Kontaktní údaje</h3>
+                    <address>
+                        U Borského parku 2887/27<br>
+                        Jižní Předměstí<br>
+                        301 00 Plzeň<br>
+                        Telefon: <a href="tel:+420602444455">+420 602 444 455</a><br>
+                        Datová schránka: p2xm83g
+                    </address>
+                </div>
+                
+                <div class="footer-nav">
+                    <h3>Navigace</h3>
+                    <ul>
+                        <li><a href="index.html">Úvod</a></li>
+                        <li><a href="about.html">O nás</a></li>
+                        <li><a href="products.html">Produkty</a></li>
+                        <li><a href="processing.html">Zpracování</a></li>
+                        <li><a href="technology.html">Technologie</a></li>
+                        <li><a href="sustainability.html">Udržitelnost</a></li>
+                        <li><a href="gallery.html">Galerie</a></li>
+                        <li><a href="contact.html">Kontakt</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Vertical Forest s.r.o. Všechna práva vyhrazena.</p>
+                <div class="footer-legal">
+                    <a href="#">Zásady ochrany osobních údajů</a>
+                    <a href="#">Obchodní podmínky</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>
