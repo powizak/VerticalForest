@@ -11,6 +11,10 @@
         --font-size-base: 14px;
     }
     
+    .logo-image {
+        height: 24px;
+    }
+    
     h1 {
         font-size: 2rem;
     }
@@ -91,6 +95,10 @@
 @media (max-width: 991.98px) {
     .mobile-menu-toggle {
         display: block;
+    }
+    
+    .logo-image {
+        height: 32px;
     }
     
     .nav-list {

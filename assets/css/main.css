@@ -169,6 +169,12 @@ section {
     text-decoration: none;
 }
 
+.logo-image {
+    height: 40px;
+    width: auto;
+    margin-right: var(--spacing-sm);
+}
+
 .logo h1 {
     font-size: 1.5rem;
     margin: 0;
