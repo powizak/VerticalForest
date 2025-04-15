@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Zpracování dřevního odpadu ve společnosti Vertical Forest s.r.o. - Udržitelný proces přeměny dřevního odpadu na vysoce kvalitní tuhá paliva.">
-    <meta name="keywords" content="zpracování dřevního odpadu, dřevní odpad, udržitelnost, ekologické palivo, Plzeň">
+    <meta name="description" content="Zpracování dřevního a plastového odpadu ve společnosti Vertical Forest s.r.o. - Udržitelný proces přeměny odpadu na vysoce kvalitní tuhá paliva.">
+    <meta name="keywords" content="zpracování dřevního odpadu, dřevní odpad, plastový odpad, TAP, udržitelnost, ekologické palivo, Plzeň">
     <meta name="author" content="Vertical Forest s.r.o.">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.verticalforest.cz/processing.html">
-    <meta property="og:title" content="Zpracování dřevního odpadu - Vertical Forest s.r.o.">
-    <meta property="og:description" content="Udržitelný proces přeměny dřevního odpadu na vysoce kvalitní tuhá paliva.">
+    <meta property="og:title" content="Zpracování dřevního a plastového odpadu - Vertical Forest s.r.o.">
+    <meta property="og:description" content="Udržitelný proces přeměny dřevního a plastového odpadu na vysoce kvalitní tuhá paliva.">
     <meta property="og:image" content="assets/images/banner.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.verticalforest.cz/processing.html">
-    <meta property="twitter:title" content="Zpracování dřevního odpadu - Vertical Forest s.r.o.">
-    <meta property="twitter:description" content="Udržitelný proces přeměny dřevního odpadu na vysoce kvalitní tuhá paliva.">
+    <meta property="twitter:title" content="Zpracování dřevního a plastového odpadu - Vertical Forest s.r.o.">
+    <meta property="twitter:description" content="Udržitelný proces přeměny dřevního a plastového odpadu na vysoce kvalitní tuhá paliva.">
     <meta property="twitter:image" content="assets/images/banner.png">
     
-    <title>Zpracování dřevního odpadu - Vertical Forest s.r.o.</title>
+    <title>Zpracování dřevního a plastového odpadu - Vertical Forest s.r.o.</title>
     
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico">
@@ -88,6 +88,34 @@
             display: block;
         }
         
+        /* Ensure videos are aligned at the same height */
+        .process-overview {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .process-overview h3,
+        .process-overview p {
+            flex: 0 0 auto;
+        }
+        
+        .process-overview .process-image {
+            flex: 1 1 auto;
+            margin-top: auto;
+            height: 0;
+            padding-bottom: 100%; /* Maintain 1:1 aspect ratio */
+            position: relative;
+        }
+        
+        .process-overview .process-image video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
         .benefits-list {
             list-style: none;
             padding: 0;
@@ -121,9 +149,46 @@
             margin: var(--spacing-lg) 0;
         }
         
+        /* Two-column layout for desktop with section alignment */
+        .processing-columns {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xl);
+            margin: var(--spacing-xl) 0;
+        }
+        
+        .section-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+        }
+        
+        .processing-column {
+            display: contents; /* This allows children to be placed directly in the grid */
+        }
+        
+        /* Single column for mobile */
         @media (max-width: 768px) {
+            .section-row {
+                grid-template-columns: 1fr;
+            }
+            
             .process-steps {
                 grid-template-columns: 1fr;
+            }
+            
+            /* Ensure wood waste appears before plastic waste on mobile */
+            .processing-column:nth-child(2) {
+                order: 2;
+            }
+            
+            .processing-column:nth-child(1) {
+                order: 1;
+            }
+            
+            /* Reset display property for mobile */
+            .processing-column {
+                display: block;
             }
         }
     </style>
@@ -161,130 +226,175 @@
         <!-- Page Header -->
         <section class="page-header bg-primary">
             <div class="container">
-                <h2 class="text-white">Zpracování dřevního odpadu</h2>
+                <h2 class="text-white">Zpracování dřevního a plastového odpadu</h2>
                 <p class="text-white">Cesta k udržitelnosti</p>
             </div>
         </section>
 
-        <!-- Process Overview -->
-        <section class="process-overview">
-            <div class="container">
-                <h3>Náš přístup ke zpracování dřevního odpadu</h3>
-                <p>Ve Vertical Forest s.r.o. věříme, že dřevní odpad má hodnotu. Proto se zaměřujeme na jeho efektivní a udržitelné zpracování. Náš proces zahrnuje pečlivý výběr a kontrolu kvality vstupního materiálu z lokálních zdrojů. Dřevní odpad je následně drcen, tříděn a sušen, aby se dosáhlo optimálních vlastností pro výrobu našich tuhých paliv.</p>
+        <!-- Processing Columns -->
+        <div class="container">
+            <div class="processing-columns">
+                <!-- Wood Waste and Plastic Waste Columns -->
+                <div class="processing-column">
+                    <!-- Wood Waste Content -->
+                </div>
+                <div class="processing-column">
+                    <!-- Plastic Waste Content -->
+                </div>
                 
-                <p>Důraz klademe na minimalizaci odpadu a maximální využití surovin. Díky našemu efektivnímu procesu zpracování dokážeme přeměnit téměř 100% vstupního materiálu na hodnotné produkty.</p>
-                
-                <div class="process-image">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23f5f5f5'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' text-anchor='middle' dominant-baseline='middle' fill='%23333333'%3EZpracování dřevního odpadu%3C/text%3E%3C/svg%3E" alt="Zpracování dřevního odpadu" width="800" height="400">
+                <!-- Process Overview Row -->
+                <div class="section-row">
+                    <!-- Wood Waste Overview -->
+                    <section class="process-overview">
+                        <h3>Náš přístup ke zpracování dřevního odpadu</h3>
+                        <p>Ve Vertical Forest s.r.o. věříme, že dřevní odpad má hodnotu. Proto se zaměřujeme na jeho efektivní a udržitelné zpracování. Náš proces zahrnuje pečlivý výběr a kontrolu kvality vstupního materiálu z lokálních zdrojů. Dřevní odpad je následně drcen, tříděn a sušen, aby se dosáhlo optimálních vlastností pro výrobu našich tuhých paliv.</p>
+                        
+                        <p>Důraz klademe na minimalizaci odpadu a maximální využití surovin. Díky našemu efektivnímu procesu zpracování dokážeme přeměnit téměř 100% vstupního materiálu na hodnotné produkty.</p>
+                        
+                        <div class="process-image">
+                            <video id="woodWasteVideo" preload="none" muted loop playsinline>
+                                <source src="assets/images/video/PATPlastv1.mp4" type="video/mp4">
+                                Váš prohlížeč nepodporuje přehrávání videa.
+                            </video>
+                        </div>
+                    </section>
+                    
+                    <!-- Plastic Waste Overview -->
+                    <section class="process-overview">
+                        <h3>Náš přístup k využití plastového odpadu</h3>
+                        <p>Ve Vertical Forest s.r.o. vnímáme plastový odpad jako cenný zdroj energie, nikoliv jako problém. Zaměřujeme se na materiály, které nelze efektivně recyklovat, a přeměňujeme je na plastová tuhá alternativní paliva (TAP).</p>
+                        
+                        <p>Náš proces zahrnuje pečlivý sběr, třídění a odstranění nežádoucích příměsí, následované drcením a homogenizací pro zajištění optimálních spalovacích vlastností. <br>Klíčovou roli hraje pokročilé čištění spalin, které minimalizuje negativní dopady na životní prostředí.</p>
+                        
+                        <div class="process-image">
+                            <video id="plasticWasteVideo" preload="none" muted loop playsinline>
+                                <source src="assets/images/video/StepkyPasv1.mp4" type="video/mp4">
+                                Váš prohlížeč nepodporuje přehrávání videa.
+                            </video>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Process Steps Row -->
+                <div class="section-row">
+                    <!-- Wood Waste Process Steps -->
+                    <section class="process-steps-section bg-light">
+                        <h3 class="text-center">Proces zpracování dřevního odpadu</h3>
+                        
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <h4>Sběr a třídění</h4>
+                                <p>Dřevní odpad získáváme z různých zdrojů, jako jsou dřevozpracující podniky, stavební firmy a lesní hospodářství. Veškerý materiál je pečlivě tříděn a kontrolován, aby splňoval naše přísné požadavky na kvalitu.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <h4>Drcení</h4>
+                                <p>Vytříděný dřevní odpad je zpracován v našich drtičích, které ho rozmělní na menší částice. Tento krok je klíčový pro další zpracování a zajišťuje optimální velikost materiálu pro následné procesy.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <h4>Sušení</h4>
+                                <p>Rozdrcený materiál je sušen v našich speciálních sušárnách, kde se snižuje obsah vlhkosti na požadovanou úroveň. Tento krok je zásadní pro dosažení vysoké výhřevnosti a kvality finálních produktů.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <h4>Lisování</h4>
+                                <p>Vysušený materiál je lisován pod vysokým tlakem do pelet nebo briket. Při tomto procesu se neuvolňují žádné škodlivé látky a nejsou používána žádná chemická pojiva. Vysoký tlak zajišťuje soudržnost materiálu.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">5</div>
+                                <h4>Chlazení</h4>
+                                <p>Po lisování jsou pelety a brikety chlazeny, aby získaly optimální pevnost a trvanlivost. Tento krok je důležitý pro zajištění kvality a stability finálních produktů.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">6</div>
+                                <h4>Balení a skladování</h4>
+                                <p>Hotové produkty jsou baleny do různých typů obalů podle požadavků zákazníků a skladovány v našich suchých skladech, kde jsou chráněny před vlhkostí a mechanickým poškozením.</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Plastic Waste Process Steps -->
+                    <section class="process-steps-section bg-light">
+                        <h3 class="text-center">Proces zpracování plastového odpadu</h3>
+                        
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <h4>Sběr a třídění</h4>
+                                <p>Zaměřujeme se na plastové materiály, které nelze efektivně recyklovat. Veškerý materiál je pečlivě tříděn a kontrolován.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <h4>Odstranění nečistot</h4>
+                                <p>Odstraňujeme nežádoucí příměsi, které by mohly negativně ovlivnit kvalitu výsledného paliva nebo způsobit problémy při spalování.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <h4>Drcení</h4>
+                                <p>Vytříděný plastový odpad je zpracován v drtičích na menší částice pro další zpracování a homogenizaci materiálu.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <h4>Homogenizace</h4>
+                                <p>Materiál je homogenizován pro zajištění optimálních spalovacích vlastností a konzistentní kvality výsledného paliva.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">5</div>
+                                <h4>Lisování</h4>
+                                <p>V případě potřeby je materiál lisován pro lepší manipulaci a skladování, podle požadavků zákazníka.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">6</div>
+                                <h4>Kontrola kvality</h4>
+                                <p>Hotové TAP je podrobeno kontrole kvality a expedováno k zákazníkům. Kontrolujeme výhřevnost a další klíčové parametry.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                                
+                <!-- Benefits Row -->
+                <div class="section-row">
+                    <!-- Wood Waste Benefits -->
+                    <section class="benefits-section bg-light" style="padding: 2em;">
+                        <h3>Výhody našeho zpracování dřevního odpadu</h3>
+                        
+                        <ul class="benefits-list">
+                            <li><strong>Udržitelnost</strong> - Přeměňujeme odpad na hodnotný zdroj energie, čímž přispíváme k cirkulární ekonomice.</li>
+                            <li><strong>Lokální zdroje</strong> - Využíváme dřevní odpad z lokálních zdrojů, čímž snižujeme uhlíkovou stopu spojenou s dopravou.</li>
+                            <li><strong>Nulový odpad</strong> - Náš proces je navržen tak, aby maximálně využil vstupní materiál a minimalizoval produkci odpadu.</li>
+                            <li><strong>Vysoká kvalita</strong> - Díky pečlivému výběru vstupního materiálu a moderním technologiím dosahujeme vysoké kvality finálních produktů.</li>
+                            <li><strong>Energetická účinnost</strong> - Naše výrobní procesy jsou optimalizovány pro minimální spotřebu energie.</li>
+                            <li><strong>Bez chemických přísad</strong> - Naše produkty neobsahují žádné chemické přísady nebo pojiva, jsou 100% přírodní.</li>
+                        </ul>
+                    </section>
+                    <!-- Plastic Waste Benefits -->
+                    <section class="benefits-section bg-light" style="padding: 2em;">
+                        <h3>Výhody našeho zpracování plastového odpadu</h3>
+                        
+                        <ul class="benefits-list">
+                            <li><strong>Energetické využití</strong> - Přeměňujeme problematický odpad na cenný zdroj energie.</li>
+                            <li><strong>Snížení skládkování</strong> - Omezujeme množství odpadu končícího na skládkách.</li>
+                            <li><strong>Náhrada fosilních paliv</strong> - TAP částečně nahrazuje fosilní paliva.</li>
+                            <li><strong>Cirkulární ekonomika</strong> - Využíváme materiály, které by jinak byly odpadem.</li>
+                            <li><strong>Minimalizace emisí</strong> - Pokročilé čištění spalin minimalizuje dopady na životní prostředí.</li>
+                            <li><strong>Ekonomická efektivita</strong> - Nabízíme výhodné řešení pro zpracování plastového odpadu.</li>
+                        </ul>
+                    </section>
                 </div>
             </div>
-        </section>
-
-        <!-- Process Steps -->
-        <section class="process-steps-section bg-light">
-            <div class="container">
-                <h3 class="text-center">Proces zpracování</h3>
-                
-                <div class="process-steps">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <h4>Sběr a třídění</h4>
-                        <p>Dřevní odpad získáváme z různých zdrojů, jako jsou dřevozpracující podniky, stavební firmy a lesní hospodářství. Veškerý materiál je pečlivě tříděn a kontrolován, aby splňoval naše přísné požadavky na kvalitu.</p>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <h4>Drcení</h4>
-                        <p>Vytříděný dřevní odpad je zpracován v našich drtičích, které ho rozmělní na menší částice. Tento krok je klíčový pro další zpracování a zajišťuje optimální velikost materiálu pro následné procesy.</p>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <h4>Sušení</h4>
-                        <p>Rozdrcený materiál je sušen v našich speciálních sušárnách, kde se snižuje obsah vlhkosti na požadovanou úroveň. Tento krok je zásadní pro dosažení vysoké výhřevnosti a kvality finálních produktů.</p>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">4</div>
-                        <h4>Lisování</h4>
-                        <p>Vysušený materiál je lisován pod vysokým tlakem do pelet nebo briket. Při tomto procesu se neuvolňují žádné škodlivé látky a nejsou používána žádná chemická pojiva. Vysoký tlak zajišťuje soudržnost materiálu.</p>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">5</div>
-                        <h4>Chlazení</h4>
-                        <p>Po lisování jsou pelety a brikety chlazeny, aby získaly optimální pevnost a trvanlivost. Tento krok je důležitý pro zajištění kvality a stability finálních produktů.</p>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">6</div>
-                        <h4>Balení a skladování</h4>
-                        <p>Hotové produkty jsou baleny do různých typů obalů podle požadavků zákazníků a skladovány v našich suchých skladech, kde jsou chráněny před vlhkostí a mechanickým poškozením.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Process Flow Diagram -->
-        <section class="process-flow-section">
-            <div class="container">
-                <h3 class="text-center">Schéma výrobního procesu</h3>
-                
-                <div class="process-flow">
-                    <div class="flow-diagram">
-                        <svg width="100%" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Background -->
-                            <rect width="800" height="200" fill="white"/>
-                            
-                            <!-- Boxes -->
-                            <rect x="50" y="70" width="100" height="60" rx="5" fill="#2e7d32" opacity="0.8"/>
-                            <rect x="200" y="70" width="100" height="60" rx="5" fill="#2e7d32" opacity="0.8"/>
-                            <rect x="350" y="70" width="100" height="60" rx="5" fill="#2e7d32" opacity="0.8"/>
-                            <rect x="500" y="70" width="100" height="60" rx="5" fill="#2e7d32" opacity="0.8"/>
-                            <rect x="650" y="70" width="100" height="60" rx="5" fill="#2e7d32" opacity="0.8"/>
-                            
-                            <!-- Arrows -->
-                            <path d="M150 100 L200 100" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
-                            <path d="M300 100 L350 100" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
-                            <path d="M450 100 L500 100" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
-                            <path d="M600 100 L650 100" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
-                            
-                            <!-- Arrow Marker -->
-                            <defs>
-                                <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-                                    <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
-                                </marker>
-                            </defs>
-                            
-                            <!-- Text -->
-                            <text x="100" y="100" text-anchor="middle" dominant-baseline="middle" fill="white" font-family="Arial" font-size="12">Sběr a třídění</text>
-                            <text x="250" y="100" text-anchor="middle" dominant-baseline="middle" fill="white" font-family="Arial" font-size="12">Drcení</text>
-                            <text x="400" y="100" text-anchor="middle" dominant-baseline="middle" fill="white" font-family="Arial" font-size="12">Sušení</text>
-                            <text x="550" y="100" text-anchor="middle" dominant-baseline="middle" fill="white" font-family="Arial" font-size="12">Lisování</text>
-                            <text x="700" y="100" text-anchor="middle" dominant-baseline="middle" fill="white" font-family="Arial" font-size="12">Balení</text>
-                        </svg>
-                    </div>
-                    
-                    <p>Náš výrobní proces je navržen tak, aby byl maximálně efektivní a šetrný k životnímu prostředí. Využíváme moderní technologie a postupy, které minimalizují spotřebu energie a produkci odpadu.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Benefits Section -->
-        <section class="benefits-section bg-light">
-            <div class="container">
-                <h3>Výhody našeho zpracování dřevního odpadu</h3>
-                
-                <ul class="benefits-list">
-                    <li><strong>Udržitelnost</strong> - Přeměňujeme odpad na hodnotný zdroj energie, čímž přispíváme k cirkulární ekonomice.</li>
-                    <li><strong>Lokální zdroje</strong> - Využíváme dřevní odpad z lokálních zdrojů, čímž snižujeme uhlíkovou stopu spojenou s dopravou.</li>
-                    <li><strong>Nulový odpad</strong> - Náš proces je navržen tak, aby maximálně využil vstupní materiál a minimalizoval produkci odpadu.</li>
-                    <li><strong>Vysoká kvalita</strong> - Díky pečlivému výběru vstupního materiálu a moderním technologiím dosahujeme vysoké kvality finálních produktů.</li>
-                    <li><strong>Energetická účinnost</strong> - Naše výrobní procesy jsou optimalizovány pro minimální spotřebu energie.</li>
-                    <li><strong>Bez chemických přísad</strong> - Naše produkty neobsahují žádné chemické přísady nebo pojiva, jsou 100% přírodní.</li>
-                </ul>
-            </div>
-        </section>
+        </div>
 
         <!-- CTA Section -->
         <section class="cta-section bg-primary">
@@ -343,5 +453,53 @@
 
     <!-- JavaScript -->
     <script src="assets/js/main.js" defer></script>
+    
+    <!-- Video loading and autoplay script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const woodWasteVideo = document.getElementById('woodWasteVideo');
+            const plasticWasteVideo = document.getElementById('plasticWasteVideo');
+            
+            // Function to start loading videos
+            function loadVideos() {
+                woodWasteVideo.preload = 'auto';
+                plasticWasteVideo.preload = 'auto';
+                
+                // Start loading the videos
+                woodWasteVideo.load();
+                plasticWasteVideo.load();
+                
+                // Track loading state
+                let woodVideoLoaded = false;
+                let plasticVideoLoaded = false;
+                
+                // Check if videos are ready to play
+                function checkAndPlay() {
+                    if (woodVideoLoaded && plasticVideoLoaded) {
+                        woodWasteVideo.play();
+                        plasticWasteVideo.play();
+                    }
+                }
+                
+                // Event listeners for when videos are loaded enough to play
+                woodWasteVideo.addEventListener('canplay', function() {
+                    woodVideoLoaded = true;
+                    checkAndPlay();
+                });
+                
+                plasticWasteVideo.addEventListener('canplay', function() {
+                    plasticVideoLoaded = true;
+                    checkAndPlay();
+                });
+            }
+            
+            // Use requestIdleCallback if available, otherwise use setTimeout
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(loadVideos);
+            } else {
+                setTimeout(loadVideos, 200); // Small delay to not block initial page rendering
+            }
+        });
+    </script>
 </body>
 </html>
