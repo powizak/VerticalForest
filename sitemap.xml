@@ -25,22 +25,10 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.verticalforest.cz/technology.html</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.verticalforest.cz/sustainability.html</loc>
     <lastmod>2025-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.verticalforest.cz/gallery.html</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.verticalforest.cz/contact.html</loc>
