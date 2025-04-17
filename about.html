@@ -30,6 +30,159 @@
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <style>
+        .sustainability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-xl) 0;
+        }
+        
+        .sustainability-card {
+            background-color: var(--color-background);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+        }
+        
+        .sustainability-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .sustainability-card h4 {
+            color: var(--color-primary);
+            margin-top: 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .value-card {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-card h4 {
+            color: var(--color-primary);
+        }
+        
+        /* Gallery and certificate styles */
+        .gallery-item {
+            cursor: pointer;
+            margin: var(--spacing-md) auto 0;
+            display: inline-block;
+        }
+        
+        .cert-image {
+            max-width: 100%;
+            height: auto;
+            transition: transform var(--transition-medium);
+            border-radius: var(--border-radius-sm);
+        }
+        
+        .gallery-item:hover .cert-image {
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            display: none;
+        }
+        
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity var(--transition-medium);
+        }
+        
+        .lightbox.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+        }
+        
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+        }
+        
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .lightbox-caption {
+            color: white;
+            text-align: center;
+            padding: var(--spacing-sm) 0;
+            font-size: 1rem;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            font-size: 2rem;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: var(--spacing-md);
+            opacity: 0.7;
+            transition: opacity var(--transition-fast);
+        }
+        
+        .lightbox-nav:hover {
+            opacity: 1;
+        }
+        
+        .lightbox-prev {
+            left: 10px;
+        }
+        
+        .lightbox-next {
+            right: 10px;
+        }
+    </style>
 </head>
 <body>
     <header class="site-header">
@@ -72,14 +225,15 @@
             <div class="container">
                 <div class="section-content">
                     <h3>Kdo jsme</h3>
-                    <p>Společnost Vertical Forest s.r.o. byla založena s cílem přinést na trh udržitelná řešení v oblasti vytápění a energetiky. Sídlíme v Plzni a specializujeme se na zpracování dřevního odpadu z různých zdrojů, který následně přeměňujeme na ekologická tuhá paliva.</p>
-                    <p>Naší prioritou je kvalita vstupního materiálu i finálních produktů, abychom našim zákazníkům poskytli efektivní a ekologicky šetrné palivo.</p>
+                    <p>Společnost Vertical Forest s.r.o. byla založena s cílem přinést na trh <strong>udržitelná řešení</strong> v oblasti výroby paliv pro teplárny a elektrárny v ČR. Specializujeme se na zpracování dřevního odpadu a plastu z různých zdrojů, který následně přeměňujeme na tuhá paliva.</p>
+                    <p>Naší prioritou jsou výrobky z <strong>kvalitních</strong> vstupních materiálů a tím i výrobky, které odpovídají příslušným normám a vyhláškám.</p>
                 </div>
                 
                 <div class="mission-vision">
                     <div class="mission-box">
                         <h3>Naše poslání</h3>
-                        <p>Aktivně přispívat k ochraně životního prostředí a podpoře obnovitelných zdrojů energie prostřednictvím udržitelného zpracování dřevního odpadu a výroby vysoce kvalitních tuhých paliv.</p>
+                        <p>Aktivně přispívat k <strong>ochraně životního prostředí</strong> a podpoře zdrojů energie prostřednictvím <strong>udržitelného</strong> zpracování dřevního odpadu a výroby <strong>vysoce kvalitních</strong> tuhých paliv.</p>
+                        <p>Současně s tím příspíváme k <strong>podpoře dekarbonizace</strong> (nahrazení uhlí) a ke <strong>snížení množství</strong> vkládaného odpadu na skládky.</p>
                     </div>
                 </div>
             </div>
@@ -92,46 +246,62 @@
                 <div class="values-grid">
                     <div class="value-card">
                         <h4>Udržitelnost</h4>
-                        <p>Důraz na ekologicky šetrné postupy a využívání obnovitelných zdrojů.</p>
+                        <p>Důraz na <strong>ekologicky šetrné</strong> postupy a využívání jinak nevyužitelných zdrojů.</p>
                     </div>
                     
                     <div class="value-card">
                         <h4>Kvalita</h4>
-                        <p>Zajištění vysoké kvality našich produktů a služeb.</p>
+                        <p>Zajištění <strong>stálé</strong> a <strong>vysoké kvality</strong> našich produktů a služeb.</p>
                     </div>
                     
                     <div class="value-card">
                         <h4>Spolehlivost</h4>
-                        <p>Budování dlouhodobých vztahů s našimi zákazníky a partnery.</p>
+                        <p>Budování <strong>dlouhodobých</strong> vztahů s našimi zákazníky a partnery.</p>
                     </div>
                     
                     <div class="value-card">
                         <h4>Inovace</h4>
-                        <p>Využívání moderních technologií pro efektivní výrobu.</p>
+                        <p>Využívání <strong>nejpokročilejších</strong> technologií pro <strong>efektivní</strong> výrobu.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Registration Info -->
-        <section class="registration-info">
+          <!-- Certifications -->
+          <section class="certifications-section">
             <div class="container">
-                <h3>Registrační údaje</h3>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <strong>IČO:</strong> 07582641
+                <h3 class="text-center">Certifikace</h3>
+                <p class="text-center">Naše závazky v oblasti udržitelnosti jsou podpořeny <strong>mezinárodně uznávanými</strong> certifikacemi:</p>
+                
+                <div class="sustainability-grid">
+                    <div class="sustainability-card">
+                        <div class="sustainability-icon">🏆</div>
+                        <h4>Palivo z odpadní biomasy</h4>
+                        <p>Certifikace systému environmentálního managementu, která potvrzuje náš závazek k ochraně životního prostředí a prevenci znečištění.</p>
+                        <div class="gallery-item">
+                            <img src="assets/images/cert/certKZR.webp" alt="Certifikát Palivo z odpadní biomasy" class="cert-image">
+                            <div class="gallery-caption">Certifikát Palivo z odpadní biomasy</div>
+                        </div>
                     </div>
-                    <div class="info-item">
-                        <strong>DIČ:</strong> CZ07582641
+                    
+                    <div class="sustainability-card">
+                        <div class="sustainability-icon">🏆</div>
+                        <h4>Pelety TAP</h4>
+                        <p>Certifikace kvality dřevních pelet, která garantuje jejich <strong>vysokou kvalitu</strong> a udržitelný původ.</p>
+                        <div class="gallery-item">
+                            <img src="assets/images/cert/certTAP.webp" alt="Certifikát Pelety TAP" class="cert-image">
+                            <div class="gallery-caption">Certifikát Pelety TAP</div>
+                        </div>
                     </div>
-                    <div class="info-item">
-                        <strong>Datum zápisu:</strong> 25. října 2018
-                    </div>
-                    <div class="info-item">
-                        <strong>Právní forma:</strong> Společnost s ručením omezeným
-                    </div>
-                    <div class="info-item">
-                        <strong>Sídlo:</strong> U Borského parku 2887/27, Jižní Předměstí, 301 00 Plzeň
+                    
+                    <div class="sustainability-card">
+                        <div class="sustainability-icon">🏆</div>
+                        <h4>KZR INIG</h4>
+                        <p>Certifikace, která potvrzuje, že naše produkty pocházejí z odpovědně obhospodařovaných lesů a kontrolovaných zdrojů.</p>
+                        <div class="gallery-item">
+                            <img src="assets/images/cert/certKZR.webp" alt="Certifikát KZR INIG" class="cert-image">
+                            <div class="gallery-caption">Certifikát KZR INIG</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -192,5 +362,6 @@
 
     <!-- JavaScript -->
     <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/gallery.js" defer></script>
 </body>
 </html>
