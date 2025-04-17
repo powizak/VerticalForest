@@ -1,86 +1,92 @@
-# Vertical Forest s.r.o. Website
+# Webové stránky Vertical Forest s.r.o.
 
-This repository contains the source code for the Vertical Forest s.r.o. company website - a modern, responsive, and SEO-optimized web presentation for a sustainable wood waste processing company based in Plzeň, Czech Republic.
+Tento repozitář obsahuje zdrojový kód pro webové stránky společnosti Vertical Forest s.r.o. - moderní, responzivní a SEO optimalizovanou webovou prezentaci pro společnost zabývající se udržitelným zpracováním dřevního odpadu se sídlem v Plzni, Česká republika.
 
-## Project Overview
+## Přehled projektu
 
-Vertical Forest s.r.o. specializes in processing wood waste into high-quality, environmentally friendly solid fuels such as wood pellets, briquettes, and wood chips. This website serves as the company's online presence, showcasing their products, technologies, and commitment to sustainability.
+Vertical Forest s.r.o. se specializuje na zpracování dřevního odpadu na vysoce kvalitní, ekologicky šetrná tuhá paliva, jako jsou dřevní pelety, brikety a štěpka. Tyto webové stránky slouží jako online prezentace společnosti, prezentující její produkty, technologie a závazek k udržitelnosti.
 
-## Features
+## Funkce
 
-- **Modern Design**: Clean, professional design with a combination of natural green tones and industrial accents
-- **Fully Responsive**: Optimized for all devices with a hamburger menu for mobile and traditional navigation for desktop
-- **SEO Optimized**: Structured for maximum search engine visibility
-- **High Performance**: Optimized for Google Page Speed Index with fast loading times
-- **Photo Gallery**: Showcasing the production facility and products
-- **Internationalization Ready**: Structured for easy addition of English language in the future
+-   **Moderní design**: Čistý, profesionální design s kombinací přírodních zelených tónů a průmyslových akcentů
+-   **Plně responzivní**: Optimalizováno pro všechna zařízení s hamburgerovým menu pro mobilní zařízení a tradiční navigací pro stolní počítače
+-   **SEO optimalizace**: Strukturováno pro maximální viditelnost ve vyhledávačích
+-   **Vysoký výkon**: Optimalizováno pro Google Page Speed Index s rychlým načítáním
+-   **Fotogalerie**: Prezentace výrobního závodu a produktů
+-   **Připraveno na internacionalizaci**: Strukturováno pro snadné přidání anglického jazyka v budoucnu
 
-## Technical Specifications
+## Technické specifikace
 
-### Technologies Used
+### Použité technologie
 
-- HTML5
-- CSS3 (with CSS variables for theming)
-- Vanilla JavaScript
-- Responsive design using CSS Grid and Flexbox
+-   HTML5
+-   CSS3 (s CSS proměnnými pro motivy)
+-   Vanilla JavaScript
+-   Responzivní design pomocí CSS Grid a Flexbox
 
-### Performance Optimizations
+### Optimalizace výkonu
 
-- Image optimization (compression, proper sizing, lazy loading)
-- CSS and JavaScript minification
-- Efficient asset loading
-- Browser caching implementation
-- Responsive images using srcset
+-   Optimalizace obrázků (komprese, správné rozměry, líné načítání)
+-   Minifikace CSS a JavaScriptu
+-   Efektivní načítání aktiv
+-   Implementace ukládání do mezipaměti prohlížeče
+-   Responzivní obrázky pomocí srcset
 
-### SEO Features
+### SEO funkce
 
-- Semantic HTML structure
-- Proper heading hierarchy
-- Optimized meta tags
-- Schema.org structured data
-- XML sitemap
-- Optimized URL structure
+-   Sémantická struktura HTML
+-   Správná hierarchie nadpisů
+-   Optimalizované meta tagy
+-   Strukturovaná data Schema.org
+-   XML sitemap
+-   Optimalizovaná struktura URL
 
-## Website Structure
+## Struktura webu
 
-- **Home**: Company introduction and key benefits
-- **About Us**: Company history, mission, values, and registration information
-- **Products**: Detailed information about wood pellets, briquettes, and wood chips
-- **Wood Waste Processing**: Description of the processing methods
-- **Technology**: Information about the technologies used
-- **Sustainability**: Environmental benefits and contributions
-- **Photo Gallery**: Images of the facility and products
-- **Contact**: Company contact information
+-   **Úvod**: Představení společnosti a klíčové výhody
+-   **O nás**: Historie společnosti, poslání, hodnoty a registrační informace
+-   **Produkty**: Podrobné informace o dřevních peletách, briketách a štěpce
+-   **Zpracování dřevního odpadu**: Popis metod zpracování
+-   **Technologie**: Informace o použitých technologiích
+-   **Udržitelnost**: Environmentální výhody a příspěvky
+-   **Fotogalerie**: Obrázky zařízení a produktů
+-   **Kontakt**: Kontaktní informace společnosti
 
-## Getting Started
+## Začínáme
 
-1. Clone this repository
-2. Open `index.html` in your browser to view the website locally
+1.  Klonujte tento repozitář
+2.  Otevřete `index.html` ve svém prohlížeči pro zobrazení webu lokálně
 
-## Development
+## Vývoj
 
-See the [plan.md](plan.md) file for detailed development tasks and progress tracking.
+Podrobné vývojové úkoly a sledování pokroku naleznete v souboru [plan.md](plan.md).
 
-## Browser Compatibility
+## Kompatibilita s prohlížeči
 
-The website is compatible with:
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Android Chrome)
+Web je kompatibilní s:
 
-## License
+-   Chrome (nejnovější)
+-   Firefox (nejnovější)
+-   Safari (nejnovější)
+-   Edge (nejnovější)
+-   Mobilní prohlížeče (iOS Safari, Android Chrome)
 
-All rights reserved. This project is proprietary to Vertical Forest s.r.o.
+## Licence
 
-## Contact
+Všechna práva vyhrazena. Tento projekt je vlastnictvím společnosti Vertical Forest s.r.o.
+
+## Kontakt
 
 Vertical Forest s.r.o.
 U Borského parku 2887/27
 Jižní Předměstí
 301 00 Plzeň
-Czech Republic
+Česká republika
 
-Phone: +420 602 444 455
-Data Box: p2xm83g
+Telefon: +420 602 444 455
+Datová schránka: p2xm83g
+
+Společnost má také pobočku ve Stodu:
+Plzeňská 250
+333 01 Stod
+Česká republika
