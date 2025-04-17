@@ -23,6 +23,7 @@ Vertical Forest s.r.o. se specializuje na zpracování dřevního odpadu na vyso
 -   CSS3 (s CSS proměnnými pro motivy)
 -   Vanilla JavaScript
 -   Responzivní design pomocí CSS Grid a Flexbox
+-   Cookie Consent library
 
 ### Optimalizace výkonu
 
@@ -31,6 +32,7 @@ Vertical Forest s.r.o. se specializuje na zpracování dřevního odpadu na vyso
 -   Efektivní načítání aktiv
 -   Implementace ukládání do mezipaměti prohlížeče
 -   Responzivní obrázky pomocí srcset
+-   Použití moderních formátů obrázků (webp)
 
 ### SEO funkce
 
@@ -47,9 +49,7 @@ Vertical Forest s.r.o. se specializuje na zpracování dřevního odpadu na vyso
 -   **O nás**: Historie společnosti, poslání, hodnoty a registrační informace
 -   **Produkty**: Podrobné informace o dřevních peletách, briketách a štěpce
 -   **Zpracování dřevního odpadu**: Popis metod zpracování
--   **Technologie**: Informace o použitých technologiích
 -   **Udržitelnost**: Environmentální výhody a příspěvky
--   **Fotogalerie**: Obrázky zařízení a produktů
 -   **Kontakt**: Kontaktní informace společnosti
 
 ## Začínáme
