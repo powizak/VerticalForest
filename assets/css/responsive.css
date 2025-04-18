@@ -95,6 +95,8 @@
 @media (max-width: 991.98px) {
     .mobile-menu-toggle {
         display: block;
+        position: relative;
+        z-index: 1003;
     }
     
     .logo-image {
@@ -113,7 +115,7 @@
         padding: var(--spacing-xl) var(--spacing-lg);
         box-shadow: var(--shadow-lg);
         transition: right var(--transition-medium);
-        z-index: 1000;
+        z-index: 1001;
     }
     
     .nav-list.active {
@@ -122,11 +124,16 @@
     
     .nav-item {
         margin: 0 0 var(--spacing-md) 0;
+        position: relative;
+        z-index: 1002;
     }
     
     .nav-item a {
         padding: var(--spacing-sm) 0;
         font-size: 1.1rem;
+        display: block;
+        position: relative;
+        z-index: 1002;
     }
     
     .mobile-menu-toggle.active .hamburger-icon {
@@ -156,10 +163,12 @@
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 999;
+        pointer-events: none;
     }
     
     .menu-overlay.active {
         display: block;
+        z-index: 99;
     }
 }
 
