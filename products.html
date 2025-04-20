@@ -243,6 +243,11 @@
             
             .product-image {
                 order: -1;
+                display: flex;
+                justify-content: center;
+                margin: 0 auto;
+                box-shadow: none;
+                background: transparent;
             }
             
             .portrait-image {
@@ -253,6 +258,21 @@
             
             .product-image-portrait {
                 height: auto;
+            }
+            
+            /* Ensure all product images display fully on mobile */
+            .product-image img {
+                width: 400px;
+                max-width: 100%;
+                height: auto;
+                object-fit: contain;
+                border-radius: var(--border-radius-md);
+            }
+            
+            .gallery-item {
+                text-align: center;
+                box-shadow: none;
+                background: transparent;
             }
         }
     </style>
