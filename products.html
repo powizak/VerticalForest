@@ -78,8 +78,8 @@
         /* Style for portrait-oriented images */
         .portrait-image {
             max-width: 100%;
-            max-height: 400px;
-            object-fit: contain;
+            height: 100%;
+            object-fit: cover;
             display: block;
             margin: 0 auto;
             transition: transform var(--transition-medium);
@@ -99,7 +99,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: auto;
+            height: 100%;
             background: transparent;
             box-shadow: none;
         }
@@ -243,6 +243,16 @@
             
             .product-image {
                 order: -1;
+            }
+            
+            .portrait-image {
+                width: 400px;
+                max-width: 100%;
+                height: auto;
+            }
+            
+            .product-image-portrait {
+                height: auto;
             }
         }
     </style>
