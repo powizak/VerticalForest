@@ -62,6 +62,12 @@
             box-shadow: var(--shadow-md);
         }
         
+        /* Override for the first product image */
+        #biomass .product-image {
+            box-shadow: none;
+            background: transparent;
+        }
+        
         .product-image img {
             width: 100%;
             height: auto;
@@ -71,8 +77,7 @@
         
         /* Style for portrait-oriented images */
         .portrait-image {
-            width: auto;
-            height: 100%;
+            max-width: 100%;
             max-height: 400px;
             object-fit: contain;
             display: block;
@@ -85,17 +90,18 @@
             border-radius: var(--border-radius-md);
             overflow: hidden;
             box-shadow: var(--shadow-md);
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            text-align: center;
+            background: transparent;
         }
         
         /* Product image container for portrait images */
         .product-image-portrait {
-            height: 400px;
             display: flex;
+            justify-content: center;
             align-items: center;
+            height: auto;
+            background: transparent;
+            box-shadow: none;
         }
         
         .gallery-item {
@@ -297,7 +303,8 @@
                         <p>Toto palivo se vyrábí z dřevního odpadu a ostatních dřevních odpadů, které <strong>není možné jinak recyklovat</strong> (např. odpadů z lesnictví, pilin, dřevotřískových desek a dýhy atd.). <br>Odpadové kódy - 02&nbsp;01&nbsp;03, 02&nbsp;01&nbsp;07, 03&nbsp;01&nbsp;01, 03&nbsp;01&nbsp;05, 03&nbsp;03&nbsp;01, 15&nbsp;01&nbsp;03, 17&nbsp;02&nbsp;01, 19&nbsp;12&nbsp;07, 20&nbsp;01&nbsp;38</p>
                         <p>Obsah biogenního uhlíku R15 v našem <strong>certifikovaném</strong> palivu z odpadní biomasy činí <strong>87,5% hmotnosti</strong>.</p>
                         <h4>Popis výrobku:</h4>
-                        <h5>Vysoce výhřevná štěpka a&nbsp;drť s&nbsp;nízkým obsahem vlhkosti a&nbsp;popela</h5>
+                        
+                        <p>Výrobek je tuhé palivo z odpadní biomasy splňující požadavky vyhlášky č. 169/2023 Sb. původem z ostatních odpadů katalogových čísel podle přílohy č. 1, tabulka č. 1.1 vyhlášky č. 169/2023 Sb. Palivo je výstupním produktem z provozu schváleného stacionárního zařízení "identifikační číslo CZP01042" ke sběru, úpravě, využití a skladování odpadů v řízené výrobní receptuře ve formě dřevní štěpky. Dřevní štěpka je homogenizovaná směs třísek z dřevní hmoty do maximálního průměru 40 mm a délce do 80 mm.</p>
                         <a href="contact.html" class="btn btn-primary">Kontaktujte nás pro nabídku</a>
                     </div>
                     
