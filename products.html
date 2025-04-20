@@ -69,6 +69,35 @@
             transition: transform var(--transition-medium);
         }
         
+        /* Style for portrait-oriented images */
+        .portrait-image {
+            width: auto;
+            height: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            transition: transform var(--transition-medium);
+        }
+        
+        /* Container for portrait images */
+        .portrait-container {
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Product image container for portrait images */
+        .product-image-portrait {
+            height: 400px;
+            display: flex;
+            align-items: center;
+        }
+        
         .gallery-item {
             cursor: pointer;
         }
@@ -165,6 +194,14 @@
             margin-top: 0;
         }
         
+        .product-details h5 {
+            color: var(--color-secondary, #6c757d);
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
         
         .comparison-table {
             width: 100%;
@@ -243,8 +280,8 @@
         <!-- Products Overview -->
         <section class="products-overview">
             <div class="container">
-                <p>Nabízíme <strong>kvalitní</strong> a <strong>ekologická</strong> tuhá paliva. V naší nabídce naleznete dřevní štěpku a drť s <strong>vysokou výhřevností</strong> a tuhá alternativní paliva (TAP) pro <strong>energetické využití odpadů</strong>. </p>
-                <p>Naše paliva jsou ideální pro průmyslové objekty, které splňují vyhlášku č. 169/2023 Sb. a vyrábíme je z pečlivě vybraného dřevního odpadu a <strong>nerecyklovatelných</strong> materiálů. Spalováním našich paliv snižujete objem skládkovaného odpadu a <strong>přispíváte k ochraně životního prostředí</strong>.</p>
+                <p>Vyrábíme <strong>kvalitní</strong> a <strong>ekologická</strong> tuhá paliva. Výsledkem je dřevní štěpka a drť s <strong>vysokou výhřevností</strong> a tuhá alternativní paliva (TAP) pro <strong>energetické využití odpadů</strong>. </p>
+                <p>Naše paliva jsou ideální pro energetické subjekty, které splňují vyhlášku č. 169/2023 Sb. a vyrábíme je z vybraného dřevního odpadu a <strong>nerecyklovatelných</strong> plastových materiálů. Spalováním našich paliv se snižuje objem skládkovaného odpadu a <strong>přispívá se k ochraně životního prostředí</strong>.</p>
             </div>
         </section>
 
@@ -257,17 +294,17 @@
                 
                 <div class="product-content">
                     <div class="product-details">
-                        <h4>Vysoce výhřevná štěpka a&nbsp;drť s&nbsp;nízkým obsahem vlhkosti a&nbsp;popela</h4>
-                        <p>Toto palivo se vyrábí z lisovaného dřevního odpadu a ostatních odpadů, které <strong>není možné jinak recyklovat</strong> (např. odpadů z lesnictví, pilin, dřevotřískových desek a dýhy atd.).</p>
-                        <p>Díky vysokému tlaku při lisování a nízkému obsahu vlhkosti dosahují <strong>vynikající výhřevnosti</strong> a dlouhé doby hoření.</p>
-                        
+                        <p>Toto palivo se vyrábí z dřevního odpadu a ostatních dřevních odpadů, které <strong>není možné jinak recyklovat</strong> (např. odpadů z lesnictví, pilin, dřevotřískových desek a dýhy atd.). <br>Odpadové kódy - 02&nbsp;01&nbsp;03, 02&nbsp;01&nbsp;07, 03&nbsp;01&nbsp;01, 03&nbsp;01&nbsp;05, 03&nbsp;03&nbsp;01, 15&nbsp;01&nbsp;03, 17&nbsp;02&nbsp;01, 19&nbsp;12&nbsp;07, 20&nbsp;01&nbsp;38</p>
+                        <p>Obsah biogenního uhlíku R15 v našem <strong>certifikovaném</strong> palivu z odpadní biomasy činí <strong>87,5% hmotnosti</strong>.</p>
+                        <h4>Popis výrobku:</h4>
+                        <h5>Vysoce výhřevná štěpka a&nbsp;drť s&nbsp;nízkým obsahem vlhkosti a&nbsp;popela</h5>
                         <a href="contact.html" class="btn btn-primary">Kontaktujte nás pro nabídku</a>
                     </div>
                     
-                    <div class="product-image">
-                        <div class="gallery-item">
-                            <img src="assets/images/products/pelety_600.webp" alt="Dřevní pelety" width="600" height="400">
-                            <div class="gallery-caption">Palivo z odpadní biomasy - Dřevní pelety</div>
+                    <div class="product-image product-image-portrait">
+                        <div class="gallery-item portrait-container">
+                            <img src="assets/images/products/PM-WEB_011_600.webp" alt="Dřevní štěpka" width="400" height="600" class="portrait-image">
+                            <div class="gallery-caption">Palivo z odpadní biomasy - Dřevní štěpka</div>
                         </div>
                     </div>
                 </div>
@@ -284,8 +321,8 @@
                 <div class="product-content">
                     <div class="product-image">
                         <div class="gallery-item">
-                            <img src="assets/images/products/stepky_600.webp" alt="Dřevní štěpky" width="600" height="400">
-                            <div class="gallery-caption">Tuhá alternativní paliva (TAP) - Dřevní štěpky</div>
+                            <img src="assets/images/products/PM-WEB_009_600.webp" alt="Tuhá alternativní paliva" width="600" height="400">
+                            <div class="gallery-caption">Tuhá alternativní paliva (TAP)</div>
                         </div>
                     </div>
                     <div class="product-details">
