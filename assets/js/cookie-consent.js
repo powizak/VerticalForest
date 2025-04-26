@@ -359,55 +359,121 @@ function updateGoogleConsent() {
 }
 
 /**
- * Save consent to localStorage
+ * Set a cookie with expiration
  */
-function saveConsent() {
-    // Save consent state
-    localStorage.setItem('cookieConsent', JSON.stringify({
-        consentState: currentConsentState,
-        timestamp: new Date().getTime()
-    }));
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/;SameSite=Lax";
 }
 
 /**
- * Load saved consent from localStorage
+ * Get a cookie by name
+ */
+function getCookie(name) {
+    const cookieName = name + "=";
+    const cookies = document.cookie.split(';');
+    for(let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i].trim();
+        if (cookie.indexOf(cookieName) === 0) {
+            return cookie.substring(cookieName.length, cookie.length);
+        }
+    }
+    return null;
+}
+
+/**
+ * Delete a cookie
+ */
+function deleteCookie(name) {
+    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;";
+}
+
+/**
+ * Save consent to localStorage and cookies (for Safari compatibility)
+ */
+function saveConsent() {
+    // Create consent data object
+    const consentData = JSON.stringify({
+        consentState: currentConsentState,
+        timestamp: new Date().getTime()
+    });
+    
+    // Try localStorage
+    try {
+        localStorage.setItem('cookieConsent', consentData);
+    } catch (e) {
+        console.warn('localStorage not available, falling back to cookies only');
+    }
+    
+    // Also set as cookie (as backup for Safari)
+    setCookie('cookieConsent', consentData, 365); // Store for 1 year
+}
+
+/**
+ * Load saved consent from localStorage or cookies
  */
 function loadSavedConsent() {
+    let savedConsent = null;
+    
+    // Try to get from localStorage first
     try {
-        const savedConsent = JSON.parse(localStorage.getItem('cookieConsent'));
-        
-        if (savedConsent && savedConsent.consentState) {
-            currentConsentState = savedConsent.consentState;
-            
-            // Ensure necessary cookies are always enabled
-            currentConsentState.necessary = true;
-            
-            // Update Google Consent Mode
-            updateGoogleConsent();
-            
-            // Show cookie settings button
-            showCookieSettingsButton();
-            
-            return true;
-        }
+        savedConsent = JSON.parse(localStorage.getItem('cookieConsent'));
     } catch (error) {
-        console.error('Error loading saved consent:', error);
+        console.warn('Error loading from localStorage:', error);
+    }
+    
+    // If not in localStorage, try cookies
+    if (!savedConsent) {
+        const cookieData = getCookie('cookieConsent');
+        if (cookieData) {
+            try {
+                savedConsent = JSON.parse(cookieData);
+            } catch (error) {
+                console.error('Error parsing cookie consent data:', error);
+            }
+        }
+    }
+    
+    // Process the consent data if we found it
+    if (savedConsent && savedConsent.consentState) {
+        currentConsentState = savedConsent.consentState;
+        
+        // Ensure necessary cookies are always enabled
+        currentConsentState.necessary = true;
+        
+        // Update Google Consent Mode
+        updateGoogleConsent();
+        
+        // Show cookie settings button
+        showCookieSettingsButton();
+        
+        return true;
     }
     
     return false;
 }
 
 /**
- * Check if user has already given consent
+ * Check if user has already given consent (in either localStorage or cookies)
  */
 function hasUserConsent() {
-    return localStorage.getItem('cookieConsent') !== null;
+    // Check localStorage
+    const localStorageConsent = localStorage.getItem('cookieConsent') !== null;
+    
+    // Check cookies
+    const cookieConsent = getCookie('cookieConsent') !== null;
+    
+    // Return true if consent exists in either storage method
+    return localStorageConsent || cookieConsent;
 }
 
 /**
- * Clear consent (for testing purposes)
+ * Clear consent from both localStorage and cookies (for testing purposes)
  */
 function clearConsent() {
     localStorage.removeItem('cookieConsent');
+    deleteCookie('cookieConsent');
     location.reload();
 }
