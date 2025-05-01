@@ -35,9 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // If yes, load the saved preferences
         loadSavedConsent();
     }
-// Initialize Google Analytics tag after consent is loaded/set
-    gtag('config', 'G-RKP8S23T31');
-    
     // Initialize event listeners
     initEventListeners();
 });
@@ -358,6 +355,11 @@ function updateGoogleConsent() {
         'ad_user_data': currentConsentState.marketing ? 'granted' : 'denied',
         'ad_personalization': currentConsentState.marketing ? 'granted' : 'denied'
     });
+
+    // Initialize Google Analytics tag after consent is updated
+    if (currentConsentState.analytics) {
+        gtag('config', 'G-RKP8S23T31');
+    }
 }
 
 /**
