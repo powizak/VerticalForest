@@ -23,10 +23,17 @@
     
     <title>Produkty - Vertical Forest s.r.o.</title>
     <!-- Google tag (gtag.js) - with Consent Mode v2 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RKP8S23T31"></script>
+    <!-- Google tag (gtag.js) - with Consent Mode v2 -->
     <script>
+        // Initialize dataLayer first
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
+        
+        // Store GA tracking ID in a global variable for consistency
+        window.GA_TRACKING_ID = 'G-RKP8S23T31';
+        
+        // Log dataLayer initialization
+        console.log('dataLayer initialized');
         
         // Default consent - everything denied except necessary
         gtag('consent', 'default', {
@@ -36,13 +43,95 @@
             'personalization_storage': 'denied',
             'security_storage': 'granted', // Always granted for security purposes
             'ad_user_data': 'denied',
-            'ad_personalization': 'denied'
+            'ad_personalization': 'denied',
+            'wait_for_update': 500 // Wait for consent update before sending hits
         });
         
-        // Google Analytics tag would be loaded here
+        // Log consent initialization
+        console.log('Default consent set in dataLayer');
+        
+        // Initialize Google Analytics with robust configuration
         gtag('js', new Date());
-        gtag('config', 'G-RKP8S23T31');
-    </script>    
+        gtag('config', window.GA_TRACKING_ID, {
+            'debug_mode': true,  // Enable debug mode to see more detailed logs
+            'send_page_view': false,  // Don't send page view until consent is granted
+            'transport_type': 'beacon',  // Use navigator.sendBeacon for more reliable data transmission
+            'cookie_domain': 'auto',
+            'cookie_flags': 'SameSite=None;Secure',
+            'cookie_update': true
+        });
+        
+        console.log('Google tag initialized in head with ID:', window.GA_TRACKING_ID);
+    </script>
+    <!-- Load GA script after dataLayer initialization -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RKP8S23T31"></script>
+    
+    <!-- Add a callback to detect if GA is blocked and verify initialization -->
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                console.log('Verifying Google Analytics initialization...');
+                
+                // Check if dataLayer contains consent information
+                var hasConsent = false;
+                var hasConfig = false;
+                
+                if (window.dataLayer) {
+                    console.log('dataLayer length:', window.dataLayer.length);
+                    
+                    for (var i = 0; i < window.dataLayer.length; i++) {
+                        var item = window.dataLayer[i];
+                        
+                        // Check for consent entries
+                        if (item && typeof item === 'object' && '0' in item && item['0'] === 'consent') {
+                            hasConsent = true;
+                            console.log('Found consent in dataLayer at index', i, ':', item);
+                        }
+                        
+                        // Check for config entries
+                        if (item && typeof item === 'object' && '0' in item &&
+                            item['0'] === 'config' && item['1'] === window.GA_TRACKING_ID) {
+                            hasConfig = true;
+                            console.log('Found config in dataLayer at index', i);
+                        }
+                    }
+                }
+                
+                if (!hasConsent) {
+                    console.warn('No consent found in dataLayer - this may cause tracking issues');
+                    // Try to set consent again
+                    if (typeof gtag === 'function') {
+                        console.log('Attempting to reset default consent');
+                        gtag('consent', 'default', {
+                            'ad_storage': 'denied',
+                            'analytics_storage': 'denied',
+                            'functionality_storage': 'denied',
+                            'personalization_storage': 'denied',
+                            'security_storage': 'granted',
+                            'ad_user_data': 'denied',
+                            'ad_personalization': 'denied'
+                        });
+                    }
+                }
+                
+                if (!hasConfig) {
+                    console.warn('No config found in dataLayer - this may cause tracking issues');
+                    // Try to configure again
+                    if (typeof gtag === 'function') {
+                        console.log('Attempting to reconfigure Google Analytics');
+                        gtag('config', window.GA_TRACKING_ID, {
+                            'debug_mode': true,
+                            'send_page_view': false
+                        });
+                    }
+                }
+                
+                if (typeof ga === 'undefined' && typeof gtag === 'function') {
+                    console.warn('Google Analytics might be blocked by an ad blocker');
+                }
+            }, 2000);
+        });
+    </script>
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico">
     

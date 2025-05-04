@@ -3,6 +3,9 @@
  * This file contains the functionality for the cookie consent banner and Google Consent Mode v2 implementation
  */
 
+// Debug mode - set to true to enable detailed logging
+const DEBUG_MODE = true;
+
 // Default consent state - all cookies are denied by default
 const defaultConsentState = {
     necessary: true,      // Always required
@@ -10,6 +13,12 @@ const defaultConsentState = {
     marketing: false,     // Google Ads, remarketing
     preferences: false    // Site preferences, settings
 };
+
+// Use the global GA_TRACKING_ID if available, otherwise use a fallback
+const GA_TRACKING_ID = (typeof window.GA_TRACKING_ID !== 'undefined') ?
+                        window.GA_TRACKING_ID : 'G-RKP8S23T31';
+
+console.log('Cookie consent script using tracking ID:', GA_TRACKING_ID);
 
 // Store for current consent state
 let currentConsentState = { ...defaultConsentState };
@@ -37,7 +46,156 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     // Initialize event listeners
     initEventListeners();
+    
+    // Verify Google Analytics tag is loaded
+    verifyGoogleAnalytics();
 });
+
+/**
+ * Verify that Google Analytics is properly loaded
+ */
+function verifyGoogleAnalytics() {
+    // Check after a longer delay to ensure scripts have fully loaded
+    setTimeout(() => {
+        if (DEBUG_MODE) console.log('Verifying Google Analytics tag...');
+        
+        // Dump the entire dataLayer for debugging
+        if (DEBUG_MODE && window.dataLayer) {
+            console.log('Current dataLayer contents:', JSON.stringify(window.dataLayer));
+        }
+        
+        // Check if the GA script is loaded
+        const gaScript = document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}"]`);
+        if (!gaScript) {
+            console.error(`Google Analytics script tag with ID ${GA_TRACKING_ID} not found in the document`);
+            console.log('Possible solutions:');
+            console.log('1. Check if the script tag is present in the HTML head');
+            console.log('2. Verify that the tracking ID is correct');
+            console.log('3. Check for any script blockers that might be preventing the script from loading');
+            
+            // Force reload the script
+            const newScript = document.createElement('script');
+            newScript.async = true;
+            newScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
+            document.head.appendChild(newScript);
+            console.log('Attempted to reload the Google Analytics script');
+            return;
+        }
+        
+        // Check if gtag function exists
+        if (typeof window.gtag !== 'function') {
+            console.error('Google Analytics tag not loaded properly - gtag function not found');
+            console.log('Possible solutions:');
+            console.log('1. Check for JavaScript errors that might be preventing the gtag function from being defined');
+            console.log('2. Ensure the GA script is loaded before any code that uses gtag');
+            
+            // Attempt to redefine gtag
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function() { window.dataLayer.push(arguments); };
+            console.log('Attempted to redefine gtag function');
+            return;
+        }
+        
+        if (DEBUG_MODE) console.log('Google Analytics tag appears to be loaded (gtag function exists)');
+        
+        // Improved dataLayer inspection for objects with numeric keys
+        let gtagConfigured = false;
+        let consentFound = false;
+        let consentUpdateFound = false;
+        
+        if (window.dataLayer) {
+            for (let i = 0; i < window.dataLayer.length; i++) {
+                const item = window.dataLayer[i];
+                
+                // Check for config entries
+                if (item && typeof item === 'object') {
+                    // Check for array-like objects with numeric keys
+                    if ('0' in item && '1' in item) {
+                        // Check for config
+                        if (item['0'] === 'config' && item['1'] === GA_TRACKING_ID) {
+                            gtagConfigured = true;
+                            if (DEBUG_MODE) console.log('Found GA config in dataLayer at index', i);
+                        }
+                        
+                        // Check for consent
+                        if (item['0'] === 'consent') {
+                            if (item['1'] === 'default') {
+                                consentFound = true;
+                                if (DEBUG_MODE) console.log('Found consent default in dataLayer at index', i);
+                            }
+                            if (item['1'] === 'update') {
+                                consentUpdateFound = true;
+                                if (DEBUG_MODE) console.log('Found consent update in dataLayer at index', i);
+                                
+                                // Check if analytics_storage is granted
+                                if (item['2'] && item['2'].analytics_storage === 'granted') {
+                                    if (DEBUG_MODE) console.log('Analytics storage is granted, Google Analytics should be collecting data');
+                                }
+                            }
+                        }
+                    }
+                    
+                    // Also check for standard event objects
+                    if (item.event === 'gtm.js' || item.event === 'gtm.dom' || item.event === 'gtm.load') {
+                        if (DEBUG_MODE) console.log('Found GTM event in dataLayer:', item.event);
+                    }
+                }
+            }
+        }
+        
+        // Report on findings
+        if (gtagConfigured) {
+            if (DEBUG_MODE) console.log(`Google Analytics tracking ID ${GA_TRACKING_ID} has been configured`);
+        } else {
+            console.warn(`Google Analytics tracking ID ${GA_TRACKING_ID} may not be properly configured`);
+            console.log('Possible solutions:');
+            console.log(`1. Ensure gtag('config', '${GA_TRACKING_ID}') is called after the consent is updated`);
+            console.log('2. Check the browser console for any JavaScript errors');
+            
+            // Attempt to reconfigure GA
+            console.log('Attempting to reconfigure Google Analytics');
+            window.gtag('js', new Date());
+            window.gtag('config', GA_TRACKING_ID, {
+                'debug_mode': true,
+                'send_page_view': currentConsentState.analytics
+            });
+        }
+        
+        if (consentFound) {
+            if (DEBUG_MODE) console.log('Default consent found in dataLayer');
+        } else {
+            console.warn('Default consent not found in dataLayer');
+        }
+        
+        if (consentUpdateFound) {
+            if (DEBUG_MODE) console.log('Consent update found in dataLayer');
+        } else {
+            console.warn('Consent update not found in dataLayer - this may prevent tracking');
+            
+            // If we have consent but no update in dataLayer, try to update again
+            if (currentConsentState.analytics) {
+                console.log('Attempting to update consent again');
+                const consentObject = {
+                    'ad_storage': currentConsentState.marketing ? 'granted' : 'denied',
+                    'analytics_storage': currentConsentState.analytics ? 'granted' : 'denied',
+                    'functionality_storage': currentConsentState.preferences ? 'granted' : 'denied',
+                    'personalization_storage': currentConsentState.preferences ? 'granted' : 'denied',
+                    'security_storage': 'granted',
+                    'ad_user_data': currentConsentState.marketing ? 'granted' : 'denied',
+                    'ad_personalization': currentConsentState.marketing ? 'granted' : 'denied'
+                };
+                window.gtag('consent', 'update', consentObject);
+            }
+        }
+        
+        // Check for common ad blockers that might interfere with GA
+        if (window.ga === undefined && window.google_tag_manager === undefined) {
+            console.warn('Possible ad blocker detected that might be blocking Google Analytics');
+            console.log('This could prevent data from being sent to Google Analytics even if consent is granted');
+        }
+        
+    }, 2000); // Increased delay to ensure everything is loaded
+}
 
 /**
  * Create and append cookie consent HTML elements to the DOM
@@ -153,22 +311,12 @@ function createCookieConsentElements() {
 
 /**
  * Initialize Google Consent Mode v2
+ * Note: Default consent is already set in the HTML head, so we don't need to set it again here
  */
 function initGoogleConsentMode() {
-    // Set default consent
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    
-    // Default consent - everything denied except necessary
-    gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'analytics_storage': 'denied',
-        'functionality_storage': 'denied',
-        'personalization_storage': 'denied',
-        'security_storage': 'granted', // Always granted for security purposes
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied'
-    });
+    console.log('Google Consent Mode initialized from cookie-consent.js');
+    // Default consent is already set in the HTML head
+    // This function is kept for potential future initialization needs
 }
 
 /**
@@ -231,6 +379,8 @@ function initEventListeners() {
             closeCookiePreferences();
         }
     });
+    
+    // Debug event listeners removed as requested
 }
 
 /**
@@ -343,10 +493,17 @@ function savePreferences() {
  * Update Google Consent Mode based on current consent state
  */
 function updateGoogleConsent() {
+    // Ensure dataLayer exists
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     
-    gtag('consent', 'update', {
+    console.log('Updating Google Consent with state:', JSON.stringify(currentConsentState));
+    
+    // Store previous analytics state to detect changes
+    const wasAnalyticsEnabled = window.analyticsEnabled || false;
+    
+    // Create consent object
+    const consentObject = {
         'ad_storage': currentConsentState.marketing ? 'granted' : 'denied',
         'analytics_storage': currentConsentState.analytics ? 'granted' : 'denied',
         'functionality_storage': currentConsentState.preferences ? 'granted' : 'denied',
@@ -354,11 +511,110 @@ function updateGoogleConsent() {
         'security_storage': 'granted', // Always granted for security purposes
         'ad_user_data': currentConsentState.marketing ? 'granted' : 'denied',
         'ad_personalization': currentConsentState.marketing ? 'granted' : 'denied'
-    });
+    };
+    
+    // Update consent state
+    gtag('consent', 'update', consentObject);
+    
+    // Log the consent update for debugging
+    console.log('Consent update sent to dataLayer:', consentObject);
 
-    // Initialize Google Analytics tag after consent is updated
+    // Track analytics state
+    window.analyticsEnabled = currentConsentState.analytics;
+    
+    // If analytics was just enabled, send a page view
     if (currentConsentState.analytics) {
-        gtag('config', 'G-RKP8S23T31');
+        console.log('Analytics consent granted, configuring GA');
+        
+        // Ensure gtag is defined
+        if (typeof gtag !== 'function') {
+            console.error('gtag function not found when trying to configure GA');
+            window.gtag = function() { window.dataLayer.push(arguments); };
+            console.log('Redefined gtag function');
+        }
+        
+        // Reconfigure GA with page view - with a slight delay to ensure consent is processed
+        setTimeout(() => {
+            console.log('Reconfiguring GA with tracking ID:', GA_TRACKING_ID);
+            
+            // Use a more robust configuration
+            gtag('config', GA_TRACKING_ID, {
+                'send_page_view': true,
+                'page_location': window.location.href,
+                'page_title': document.title,
+                'debug_mode': DEBUG_MODE,
+                'cookie_domain': 'auto',
+                'cookie_flags': 'SameSite=None;Secure',
+                'cookie_update': true,
+                'transport_type': 'beacon'
+            });
+            
+            // Verify the configuration was added to dataLayer
+            let configFound = false;
+            for (let i = 0; i < window.dataLayer.length; i++) {
+                const item = window.dataLayer[i];
+                // Check for array-like objects with numeric keys
+                if (item && typeof item === 'object' && '0' in item && '1' in item) {
+                    if (item['0'] === 'config' && item['1'] === GA_TRACKING_ID) {
+                        configFound = true;
+                        console.log('Confirmed GA configuration in dataLayer at index', i);
+                        break;
+                    }
+                }
+            }
+            
+            if (!configFound) {
+                console.warn('GA configuration not found in dataLayer after update - trying alternative approach');
+                // Try an alternative approach - direct event
+                gtag('event', 'page_view', {
+                    'send_to': GA_TRACKING_ID,
+                    'page_title': document.title,
+                    'page_location': window.location.href,
+                    'page_path': window.location.pathname
+                });
+            }
+            
+            // Verify consent state wasn't reset
+            let consentUpdateFound = false;
+            for (let i = 0; i < window.dataLayer.length; i++) {
+                const item = window.dataLayer[i];
+                if (item && typeof item === 'object' && '0' in item && '1' in item) {
+                    if (item['0'] === 'consent' && item['1'] === 'update') {
+                        consentUpdateFound = true;
+                        console.log('Confirmed consent update in dataLayer');
+                        break;
+                    }
+                }
+            }
+            
+            if (!consentUpdateFound) {
+                console.warn('Consent update not found in dataLayer - reapplying consent');
+                // Reapply consent
+                gtag('consent', 'update', consentObject);
+            }
+        }, 200); // Increased delay for more reliability
+        
+        // If this is the first time analytics is enabled in this session, track it
+        if (!wasAnalyticsEnabled) {
+            console.log('First analytics consent in session, sending explicit page view');
+            gtag('event', 'page_view', {
+                page_title: document.title,
+                page_location: window.location.href,
+                page_path: window.location.pathname
+            });
+            
+            // Send a test event to verify tracking is working
+            setTimeout(() => {
+                console.log('Sending test event to verify analytics tracking');
+                gtag('event', 'consent_granted', {
+                    'event_category': 'Consent',
+                    'event_label': 'Analytics consent granted',
+                    'non_interaction': true
+                });
+            }, 1000);
+        }
+    } else {
+        console.log('Analytics consent denied');
     }
 }
 
@@ -421,9 +677,17 @@ function saveConsent() {
 function loadSavedConsent() {
     let savedConsent = null;
     
+    console.log('Loading saved consent preferences');
+    
+    // Ensure dataLayer exists
+    window.dataLayer = window.dataLayer || [];
+    
     // Try to get from localStorage first
     try {
         savedConsent = JSON.parse(localStorage.getItem('cookieConsent'));
+        if (savedConsent) {
+            console.log('Found consent in localStorage:', savedConsent);
+        }
     } catch (error) {
         console.warn('Error loading from localStorage:', error);
     }
@@ -434,6 +698,7 @@ function loadSavedConsent() {
         if (cookieData) {
             try {
                 savedConsent = JSON.parse(cookieData);
+                console.log('Found consent in cookies:', savedConsent);
             } catch (error) {
                 console.error('Error parsing cookie consent data:', error);
             }
@@ -442,13 +707,52 @@ function loadSavedConsent() {
     
     // Process the consent data if we found it
     if (savedConsent && savedConsent.consentState) {
+        console.log('Applying saved consent state:', savedConsent.consentState);
+        
+        // Check consent age - if older than 6 months, consider it expired
+        const consentAge = new Date().getTime() - savedConsent.timestamp;
+        const sixMonthsInMs = 6 * 30 * 24 * 60 * 60 * 1000;
+        
+        if (consentAge > sixMonthsInMs) {
+            console.log('Consent is older than 6 months, treating as expired');
+            return false;
+        }
+        
+        // Verify gtag function exists
+        if (typeof window.gtag !== 'function') {
+            console.warn('gtag function not found when loading saved consent');
+            window.gtag = function() { window.dataLayer.push(arguments); };
+            console.log('Redefined gtag function');
+        }
+        
+        // Apply saved consent state
         currentConsentState = savedConsent.consentState;
         
         // Ensure necessary cookies are always enabled
         currentConsentState.necessary = true;
         
-        // Update Google Consent Mode
-        updateGoogleConsent();
+        // Check if GA script is loaded
+        const gaScript = document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}"]`);
+        if (!gaScript) {
+            console.warn(`Google Analytics script tag with ID ${GA_TRACKING_ID} not found when loading saved consent`);
+            // Wait longer for script to load
+            setTimeout(() => {
+                console.log('Applying saved consent to Google Consent Mode (delayed)');
+                updateGoogleConsent();
+                
+                // Verify consent was applied
+                verifyGoogleAnalytics();
+            }, 1000);
+        } else {
+            // Update Google Consent Mode with a slight delay to ensure GA is loaded
+            setTimeout(() => {
+                console.log('Applying saved consent to Google Consent Mode');
+                updateGoogleConsent();
+                
+                // Verify consent was applied
+                setTimeout(verifyGoogleAnalytics, 500);
+            }, 100);
+        }
         
         // Show cookie settings button
         showCookieSettingsButton();
@@ -456,6 +760,7 @@ function loadSavedConsent() {
         return true;
     }
     
+    console.log('No valid saved consent found');
     return false;
 }
 
