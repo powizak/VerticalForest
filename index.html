@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="cs">
 
 <head>
@@ -32,7 +32,7 @@
     <script>
         // Initialize dataLayer first
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        window.gtag = function(){window.dataLayer.push(arguments);}
         
         // Store GA tracking ID in a global variable for consistency
         window.GA_TRACKING_ID = 'G-RKP8S23T31';
@@ -59,7 +59,6 @@
         gtag('js', new Date());
         gtag('config', window.GA_TRACKING_ID, {
             'debug_mode': true,  // Enable debug mode to see more detailed logs
-            'send_page_view': false,  // Don't send page view until consent is granted
             'transport_type': 'beacon',  // Use navigator.sendBeacon for more reliable data transmission
             'cookie_domain': 'auto',
             'cookie_flags': 'SameSite=None;Secure',
@@ -126,7 +125,7 @@
                         console.log('Attempting to reconfigure Google Analytics');
                         gtag('config', window.GA_TRACKING_ID, {
                             'debug_mode': true,
-                            'send_page_view': false
+                            // 'send_page_view' standard behavior
                         });
                     }
                 }

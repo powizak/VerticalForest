@@ -495,11 +495,11 @@ function savePreferences() {
 function updateGoogleConsent() {
     // Ensure dataLayer exists
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
     
     console.log('Updating Google Consent with state:', JSON.stringify(currentConsentState));
     
-    // Store previous analytics state to detect changes
+    // Store previous analytics state
     const wasAnalyticsEnabled = window.analyticsEnabled || false;
     
     // Create consent object
@@ -514,7 +514,7 @@ function updateGoogleConsent() {
     };
     
     // Update consent state
-    gtag('consent', 'update', consentObject);
+    window.gtag('consent', 'update', consentObject);
     
     // Log the consent update for debugging
     console.log('Consent update sent to dataLayer:', consentObject);
@@ -522,96 +522,19 @@ function updateGoogleConsent() {
     // Track analytics state
     window.analyticsEnabled = currentConsentState.analytics;
     
-    // If analytics was just enabled, send a page view
+    // If analytics consent was just enabled, send an event indicating this
     if (currentConsentState.analytics) {
-        console.log('Analytics consent granted, configuring GA');
+        console.log('Analytics consent granted');
         
-        // Ensure gtag is defined
-        if (typeof gtag !== 'function') {
-            console.error('gtag function not found when trying to configure GA');
-            window.gtag = function() { window.dataLayer.push(arguments); };
-            console.log('Redefined gtag function');
-        }
-        
-        // Reconfigure GA with page view - with a slight delay to ensure consent is processed
-        setTimeout(() => {
-            console.log('Reconfiguring GA with tracking ID:', GA_TRACKING_ID);
-            
-            // Use a more robust configuration
-            gtag('config', GA_TRACKING_ID, {
-                'send_page_view': true,
-                'page_location': window.location.href,
-                'page_title': document.title,
-                'debug_mode': DEBUG_MODE,
-                'cookie_domain': 'auto',
-                'cookie_flags': 'SameSite=None;Secure',
-                'cookie_update': true,
-                'transport_type': 'beacon'
-            });
-            
-            // Verify the configuration was added to dataLayer
-            let configFound = false;
-            for (let i = 0; i < window.dataLayer.length; i++) {
-                const item = window.dataLayer[i];
-                // Check for array-like objects with numeric keys
-                if (item && typeof item === 'object' && '0' in item && '1' in item) {
-                    if (item['0'] === 'config' && item['1'] === GA_TRACKING_ID) {
-                        configFound = true;
-                        console.log('Confirmed GA configuration in dataLayer at index', i);
-                        break;
-                    }
-                }
-            }
-            
-            if (!configFound) {
-                console.warn('GA configuration not found in dataLayer after update - trying alternative approach');
-                // Try an alternative approach - direct event
-                gtag('event', 'page_view', {
-                    'send_to': GA_TRACKING_ID,
-                    'page_title': document.title,
-                    'page_location': window.location.href,
-                    'page_path': window.location.pathname
-                });
-            }
-            
-            // Verify consent state wasn't reset
-            let consentUpdateFound = false;
-            for (let i = 0; i < window.dataLayer.length; i++) {
-                const item = window.dataLayer[i];
-                if (item && typeof item === 'object' && '0' in item && '1' in item) {
-                    if (item['0'] === 'consent' && item['1'] === 'update') {
-                        consentUpdateFound = true;
-                        console.log('Confirmed consent update in dataLayer');
-                        break;
-                    }
-                }
-            }
-            
-            if (!consentUpdateFound) {
-                console.warn('Consent update not found in dataLayer - reapplying consent');
-                // Reapply consent
-                gtag('consent', 'update', consentObject);
-            }
-        }, 200); // Increased delay for more reliability
-        
-        // If this is the first time analytics is enabled in this session, track it
         if (!wasAnalyticsEnabled) {
-            console.log('First analytics consent in session, sending explicit page view');
-            gtag('event', 'page_view', {
-                page_title: document.title,
-                page_location: window.location.href,
-                page_path: window.location.pathname
-            });
+            console.log('First analytics consent in session. GA auto-tracks standard page views thanks to default config in HTML.');
             
-            // Send a test event to verify tracking is working
-            setTimeout(() => {
-                console.log('Sending test event to verify analytics tracking');
-                gtag('event', 'consent_granted', {
-                    'event_category': 'Consent',
-                    'event_label': 'Analytics consent granted',
-                    'non_interaction': true
-                });
-            }, 1000);
+            // Standard GA event tracking
+            window.gtag('event', 'consent_granted', {
+                'event_category': 'Consent',
+                'event_label': 'Analytics consent granted',
+                'non_interaction': true
+            });
         }
     } else {
         console.log('Analytics consent denied');
