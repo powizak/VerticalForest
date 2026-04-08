@@ -1,0 +1,50 @@
+# Vertical Forest s.r.o.
+
+> Inovativní společnost zaměřená na ekologické zpracování odpadu, výrobu tuhých alternativních paliv (TAP) a transformaci nevyužitelných průmyslových plastových přetoků na vysoce výhřevné plastové uhlí. Naším cílem je podpora dekarbonizace a snižování objemu skládkovaného odpadu.
+
+## O společnosti
+- [Úvod](/index.html): Hlavní přehled našich činností, výhod a představení našich klíčových produktů pro energetické subjekty.
+- [O nás](/about.html): Profil společnosti Vertical Forest s.r.o., naše poslání (udržitelnost, kvalita, spolehlivost, inovace) a detailní přehled certifikací (včetně certifikátů pro Palivo z odpadní biomasy, Pelety TAP, KZR INIG a VF AP 03 pro plastovou štěpku).
+- [Udržitelnost](/sustainability.html): Náš přístup k cirkulární ekonomice, snižování uhlíkové stopy a šetrnosti k životnímu prostředí.
+
+## Naše produkty a zpracování
+- [Produkty](/products.html): Detailní specifikace našich ekologických paliv splňujících vyhlášku č. 169/2023 Sb. Najdete zde informace o Palivu z odpadní biomasy (dřevní štěpka z vybraného dřevního odpadu), klasickém TAP ve formě pelet a o naší speciální plastové štěpce (plastovém uhlí).
+- [Zpracování](/processing.html): Informace o našich technologických postupech, včetně separace kovů a drcení houževnatých kusů plastů průmyslovým drtičem UNTHA XR Shredder XR3000.
+
+## Kontakt
+- [Kontakt](/contact.html): Kde nás najdete (U Borského parku 2887/27, 301 00 Plzeň) a kontaktní formulář pro zasílání poptávek.
+
+## Často kladené dotazy (FAQ)
+
+### Produkty: Tuhá alternativní paliva (TAP) a Dřevní štěpka
+**Jaké produkty společnost Vertical Forest vyrábí?**
+Specializujeme se na výrobu tuhých alternativních paliv (TAP) pro energetické využití, paliva z odpadní biomasy (dřevní štěpku o průměru do 40 mm a délce do 80 mm) a speciální plastovou štěpku (plastové uhlí). Naše výrobky splňují přísné normy, včetně vyhlášky č. 169/2023 Sb.
+
+**Pro koho jsou vaše paliva určena?**
+Naše paliva jsou ideální pro energetické subjekty, teplárny a elektrárny, které jsou k tomuto účelu technicky i legislativně vybaveny a hledají efektivní náhradu za fosilní paliva. Tímto přístupem společně podporujeme dekarbonizaci.
+
+**Z čeho se vyrábí klasické TAP (pelety)?**
+Naše pelety TAP (o průměru 8–16 mm) jsou výstupním produktem z peletizační linky. Zpracováváme pečlivě vybrané složky odpadů s důrazem na minimální objem nežádoucích prvků, především chlóru.
+
+**Jaký je podíl biogenního uhlíku ve vašich palivech?**
+Obsah biogenního uhlíku (R-15) v našem certifikovaném palivu z odpadní biomasy činí 87,5 % hmotnosti, u klasického TAPu pak 15,7 % hmotnosti. (Pozn.: U plastové štěpky se tento parametr neuvádí).
+
+### Produkty: Plastové uhlí (Plastová štěpka TAP)
+**Co je to plastové uhlí od Vertical Forest?**
+Jde o specifický druh paliva (certifikovaného jako VF AP 03), které se vyrábí z průmyslového odpadu – z nerecyklovatelných přetoků z výroby lisovaných plastů (např. plastových forem či retardérů). Tento materiál již nelze běžně tavit a znovu využít jako recyklát, a tak jej přeměňujeme na zdroj energie.
+
+**Jaké jsou hlavní parametry vašeho plastového uhlí?**
+Materiál vyniká mimořádnou výhřevností (spalné teplo cca 26,9 GJ/t), velmi nízkým obsahem chlóru (pouze 0,033 %) a téměř nulovým zůstatkem popelovin (kolem 3,11 %). Sypná hmotnost dosahuje cca 179 kg/m³.
+
+**Jak se plastová štěpka využívá a spaluje?**
+Slouží jako vysoce efektivní doplněk paliva. Spaluje se nejčastěji společně s klasickým uhlím (proces spoluspalování), ke kterému se přidává v doporučeném objemu 5–10 %.
+
+### Zpracování a technologie
+**Jak zpracováváte dřevní a plastový odpad?**
+K vlastnímu zpracování používáme pomaloběžné i rychloběžné drtiče, výkonné nakladače, překladače a kvalitní separátory kovů, které zajišťují maximální čistotu výstupní frakce. Vše je optimalizováno pro minimální spotřebu energie a vysokou kvalitu.
+
+**Jakou technologii používáte pro ty nejodolnější plasty?**
+Pro drcení náročných, pevných plastových kusů (včetně zmetků z výroby) využíváme mimo jiné špičkový průmyslový drtič UNTHA XR Shredder XR3000. Dokážeme tak materiál zpracovat na finální frakci o velikosti minimálně 3,5 cm.
+
+**Má vaše práce ekologický přesah?**
+Ano, naše činnost je základem cirkulární ekonomiky. Materiály, které by jinak bezúčelně končily na skládkách, vracíme zpět do oběhu jako zdroj energie. Nahrazujeme jimi primární fosilní paliva, čímž snižujeme závislost na neobnovitelných zdrojích a omezujeme environmentální zátěž. Disponujeme mimo jiné certifikací KZR INIG (potvrzující udržitelnou výrobu biopaliv).
