@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="cs">
 
 <head>
@@ -32,14 +32,14 @@
     <script>
         // Initialize dataLayer first
         window.dataLayer = window.dataLayer || [];
-        window.gtag = function(){window.dataLayer.push(arguments);}
-        
+        window.gtag = function () { window.dataLayer.push(arguments); }
+
         // Store GA tracking ID in a global variable for consistency
         window.GA_TRACKING_ID = 'G-RKP8S23T31';
-        
+
         // Log dataLayer initialization
         console.log('dataLayer initialized');
-        
+
         // Default consent - everything denied except necessary
         gtag('consent', 'default', {
             'ad_storage': 'denied',
@@ -51,10 +51,10 @@
             'ad_personalization': 'denied',
             'wait_for_update': 500 // Wait for consent update before sending hits
         });
-        
+
         // Log consent initialization
         console.log('Default consent set in dataLayer');
-        
+
         // Initialize Google Analytics with robust configuration
         gtag('js', new Date());
         gtag('config', window.GA_TRACKING_ID, {
@@ -64,34 +64,34 @@
             'cookie_flags': 'SameSite=None;Secure',
             'cookie_update': true
         });
-        
+
         console.log('Google tag initialized in head with ID:', window.GA_TRACKING_ID);
     </script>
     <!-- Load GA script after dataLayer initialization -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RKP8S23T31"></script>
-    
+
     <!-- Add a callback to detect if GA is blocked and verify initialization -->
     <script>
-        window.addEventListener('load', function() {
-            setTimeout(function() {
+        window.addEventListener('load', function () {
+            setTimeout(function () {
                 console.log('Verifying Google Analytics initialization...');
-                
+
                 // Check if dataLayer contains consent information
                 var hasConsent = false;
                 var hasConfig = false;
-                
+
                 if (window.dataLayer) {
                     console.log('dataLayer length:', window.dataLayer.length);
-                    
+
                     for (var i = 0; i < window.dataLayer.length; i++) {
                         var item = window.dataLayer[i];
-                        
+
                         // Check for consent entries
                         if (item && typeof item === 'object' && '0' in item && item['0'] === 'consent') {
                             hasConsent = true;
                             console.log('Found consent in dataLayer at index', i, ':', item);
                         }
-                        
+
                         // Check for config entries
                         if (item && typeof item === 'object' && '0' in item &&
                             item['0'] === 'config' && item['1'] === window.GA_TRACKING_ID) {
@@ -100,7 +100,7 @@
                         }
                     }
                 }
-                
+
                 if (!hasConsent) {
                     console.warn('No consent found in dataLayer - this may cause tracking issues');
                     // Try to set consent again
@@ -117,7 +117,7 @@
                         });
                     }
                 }
-                
+
                 if (!hasConfig) {
                     console.warn('No config found in dataLayer - this may cause tracking issues');
                     // Try to configure again
@@ -129,14 +129,14 @@
                         });
                     }
                 }
-                
+
                 if (typeof ga === 'undefined' && typeof gtag === 'function') {
                     console.warn('Google Analytics might be blocked by an ad blocker');
                 }
             }, 2000);
         });
     </script>
-    
+
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico">
 
@@ -201,16 +201,21 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/images/gallery/fotoUvod.webp');">
+        <section class="hero"
+            style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/images/gallery/fotoUvod.webp');">
             <div class="container">
                 <div class="hero-content">
                     <h2>Paliva z odpadu</h2>
                     <p> Zpracováváme odpad při ustanovení podmínek vyhlášky č.169/2023, při jejichž splnění přestává
-                        být tuhé palivo z odpadu odpadem a měníme ho na <strong>kvalitní</strong> a <strong>ekologicky šetrná</strong> tuhá paliva.
+                        být tuhé palivo z odpadu odpadem a měníme ho na <strong>kvalitní</strong> a <strong>ekologicky
+                            šetrná</strong> tuhá paliva.
                     </p>
-                    <p>Ve Vertical Forest s.r.o. se specializujeme na výrobu paliv z odpadů, které zajišťují <strong>efektivní
-                        a cenově dostupnou</strong> náhradu uhlí. Díky tomu přispíváme k ochraně životního prostředí a podpoře
-                        <strong>obnovitelných zdrojů</strong> energie.</p>
+                    <p>Ve Vertical Forest s.r.o. se specializujeme na výrobu paliv z odpadů, které zajišťují
+                        <strong>efektivní
+                            a cenově dostupnou</strong> náhradu uhlí. Díky tomu přispíváme k ochraně životního prostředí
+                        a podpoře
+                        <strong>obnovitelných zdrojů</strong> energie.
+                    </p>
                     <a href="contact.html" class="btn btn-primary">Kontaktujte nás pro nabídku</a>
                 </div>
             </div>
@@ -221,16 +226,18 @@
             <div class="container">
                 <h2>Co je naším cílem?</h2>
                 <p>
-                    Naším cílem je využití odpadu, který již nelze jinak zpracovat. Alternativní paliva, která jsou klíčovým krokem
+                    Naším cílem je využití odpadu, který již nelze jinak zpracovat. Alternativní paliva, která jsou
+                    klíčovým krokem
                     k&nbsp;cirkulární ekonomice, se takový odpad stává <strong>cenným zdrojem energie</strong>.</p>
                 <p>Díky <strong>pokročilým technologiím</strong> spalování je zajištěn bezpečný a ekologicky šetrný
                     provoz, splňující přísné emisní limity.
-                    Tuhá alternativní paliva, včetně paliv z  odpadní biomasy, tak představují <strong>udržitelnou
-                        cestu</strong> k výrobě tepla a elektřiny a efektivní způsob, jak <strong>snížit naši environmentální stopu
+                    Tuhá alternativní paliva, včetně paliv z odpadní biomasy, tak představují <strong>udržitelnou
+                        cestu</strong> k výrobě tepla a elektřiny a efektivní způsob, jak <strong>snížit naši
+                        environmentální stopu
                     </strong>a podpořit využívání
                     <strong>obnovitelných zdrojů</strong>.
                 </p>
-                
+
             </div>
         </section>
 
@@ -241,8 +248,8 @@
                 <div class="products-grid">
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="assets/images/products/PM-WEB_012_600.webp" alt="Palivo z odpadní biomasy" width="400"
-                                height="300">
+                            <img src="assets/images/products/PM-WEB_012_600.webp" alt="Palivo z odpadní biomasy"
+                                width="400" height="300">
                         </div>
                         <h3>Palivo z odpadní biomasy</h3>
                         <p>Energeticky využitelná organická hmota z odpadních zdrojů.</p>
@@ -251,12 +258,21 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="assets/images/products/PM-WEB_007_600.webp" alt="Tuhé alternativní palivo" width="400"
-                                height="300">
+                            <img src="assets/images/products/PM-WEB_007_600.webp" alt="Tuhé alternativní palivo"
+                                width="400" height="300">
                         </div>
                         <h3>Tuhá alternativní paliva</h3>
                         <p>Energeticky využitelný průmyslově upravený nerecyklovatelný odpad.</p>
                         <a href="products.html#tap" class="btn btn-secondary">Více informací</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/images/products/TK_S_0010_600.webp" alt="Plastové uhlí TAP" width="400"
+                                height="300">
+                        </div>
+                        <h3>Plastová štěpka - TAP</h3>
+                        <p>Vysoce výhřevné plastové uhlí z nerecyklovatelných přetoků, ideální jako příměs k uhlí.</p>
+                        <a href="products.html#tap-plastic" class="btn btn-secondary">Více informací</a>
                     </div>
                 </div>
                 <div class="text-center">
@@ -313,4 +329,3 @@
     <script src="assets/js/main.js" defer></script>
     <script src="assets/js/cookie-consent.js" defer></script>
 </body>
-

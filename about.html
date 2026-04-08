@@ -1,41 +1,46 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="cs">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="O společnosti Vertical Forest s.r.o. - Přinášíme udržitelná řešení v oblasti výroby paliv z odpadu. Naše certifikované produkty přispívají k ochraně životního prostředí a dekarbonizaci.">
-    <meta name="keywords" content="Vertical Forest, o nás, zpracování odpadu, ekologické palivo, certifikace, udržitelnost, Plzeň, udržitelná energie">
+    <meta name="description"
+        content="O společnosti Vertical Forest s.r.o. - Přinášíme udržitelná řešení v oblasti výroby paliv z odpadu. Naše certifikované produkty přispívají k ochraně životního prostředí a dekarbonizaci.">
+    <meta name="keywords"
+        content="Vertical Forest, o nás, zpracování odpadu, ekologické palivo, certifikace, udržitelnost, Plzeň, udržitelná energie">
     <meta name="author" content="Vertical Forest s.r.o.">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.verticalforest.cz/about.html">
     <meta property="og:title" content="O nás - Vertical Forest s.r.o.">
-    <meta property="og:description" content="Přinášíme udržitelná řešení v oblasti výroby paliv z odpadu. Naše certifikované produkty přispívají k ochraně životního prostředí a dekarbonizaci.">
+    <meta property="og:description"
+        content="Přinášíme udržitelná řešení v oblasti výroby paliv z odpadu. Naše certifikované produkty přispívají k ochraně životního prostředí a dekarbonizaci.">
     <meta property="og:image" content="assets/images/products/PM-L_009.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.verticalforest.cz/about.html">
     <meta property="twitter:title" content="O nás - Vertical Forest s.r.o.">
-    <meta property="twitter:description" content="Přinášíme udržitelná řešení v oblasti výroby paliv z odpadu. Naše certifikované produkty přispívají k ochraně životního prostředí a dekarbonizaci.">
+    <meta property="twitter:description"
+        content="Přinášíme udržitelná řešení v oblasti výroby paliv z odpadu. Naše certifikované produkty přispívají k ochraně životního prostředí a dekarbonizaci.">
     <meta property="twitter:image" content="assets/images/products/PM-L_009.jpg">
-    
+
     <title>O nás - Vertical Forest s.r.o.</title>
-    
-    
+
+
     <!-- Google tag (gtag.js) - with Consent Mode v2 -->
     <script>
         // Initialize dataLayer first
         window.dataLayer = window.dataLayer || [];
-        window.gtag = function(){window.dataLayer.push(arguments);}
-        
+        window.gtag = function () { window.dataLayer.push(arguments); }
+
         // Store GA tracking ID in a global variable for consistency
         window.GA_TRACKING_ID = 'G-RKP8S23T31';
-        
+
         // Log dataLayer initialization
         console.log('dataLayer initialized');
-        
+
         // Default consent - everything denied except necessary
         gtag('consent', 'default', {
             'ad_storage': 'denied',
@@ -47,10 +52,10 @@
             'ad_personalization': 'denied',
             'wait_for_update': 500 // Wait for consent update before sending hits
         });
-        
+
         // Log consent initialization
         console.log('Default consent set in dataLayer');
-        
+
         // Initialize Google Analytics with robust configuration
         gtag('js', new Date());
         gtag('config', window.GA_TRACKING_ID, {
@@ -60,34 +65,34 @@
             'cookie_flags': 'SameSite=None;Secure',
             'cookie_update': true
         });
-        
+
         console.log('Google tag initialized in head with ID:', window.GA_TRACKING_ID);
     </script>
     <!-- Load GA script after dataLayer initialization -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RKP8S23T31"></script>
-    
+
     <!-- Add a callback to detect if GA is blocked and verify initialization -->
     <script>
-        window.addEventListener('load', function() {
-            setTimeout(function() {
+        window.addEventListener('load', function () {
+            setTimeout(function () {
                 console.log('Verifying Google Analytics initialization...');
-                
+
                 // Check if dataLayer contains consent information
                 var hasConsent = false;
                 var hasConfig = false;
-                
+
                 if (window.dataLayer) {
                     console.log('dataLayer length:', window.dataLayer.length);
-                    
+
                     for (var i = 0; i < window.dataLayer.length; i++) {
                         var item = window.dataLayer[i];
-                        
+
                         // Check for consent entries
                         if (item && typeof item === 'object' && '0' in item && item['0'] === 'consent') {
                             hasConsent = true;
                             console.log('Found consent in dataLayer at index', i, ':', item);
                         }
-                        
+
                         // Check for config entries
                         if (item && typeof item === 'object' && '0' in item &&
                             item['0'] === 'config' && item['1'] === window.GA_TRACKING_ID) {
@@ -96,7 +101,7 @@
                         }
                     }
                 }
-                
+
                 if (!hasConsent) {
                     console.warn('No consent found in dataLayer - this may cause tracking issues');
                     // Try to set consent again
@@ -113,7 +118,7 @@
                         });
                     }
                 }
-                
+
                 if (!hasConfig) {
                     console.warn('No config found in dataLayer - this may cause tracking issues');
                     // Try to configure again
@@ -125,7 +130,7 @@
                         });
                     }
                 }
-                
+
                 if (typeof ga === 'undefined' && typeof gtag === 'function') {
                     console.warn('Google Analytics might be blocked by an ad blocker');
                 }
@@ -135,7 +140,7 @@
 
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/main.css">
@@ -149,7 +154,7 @@
             gap: var(--spacing-lg);
             margin: var(--spacing-xl) 0;
         }
-        
+
         .sustainability-card {
             background-color: var(--color-background);
             border-radius: var(--border-radius-md);
@@ -158,12 +163,12 @@
             text-align: center;
             transition: transform var(--transition-medium), box-shadow var(--transition-medium);
         }
-        
+
         .sustainability-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-md);
         }
-        
+
         .sustainability-card h4 {
             color: var(--color-primary);
             margin-top: 0;
@@ -192,29 +197,29 @@
         .value-card h4 {
             color: var(--color-primary);
         }
-        
+
         /* Gallery and certificate styles */
         .gallery-item {
             cursor: pointer;
             margin: var(--spacing-md) auto 0;
             display: inline-block;
         }
-        
+
         .cert-image {
             max-width: 100%;
             height: auto;
             transition: transform var(--transition-medium);
             border-radius: var(--border-radius-sm);
         }
-        
+
         .gallery-item:hover .cert-image {
             transform: scale(1.05);
         }
-        
+
         .gallery-caption {
             display: none;
         }
-        
+
         /* Lightbox styles */
         .lightbox {
             display: none;
@@ -228,35 +233,35 @@
             opacity: 0;
             transition: opacity var(--transition-medium);
         }
-        
+
         .lightbox.active {
             display: flex;
             justify-content: center;
             align-items: center;
             opacity: 1;
         }
-        
+
         .lightbox-content {
             position: relative;
             max-width: 90%;
             max-height: 90%;
             margin: auto;
         }
-        
+
         .lightbox-image {
             max-width: 100%;
             max-height: 90vh;
             border-radius: var(--border-radius-md);
             box-shadow: var(--shadow-lg);
         }
-        
+
         .lightbox-caption {
             color: white;
             text-align: center;
             padding: var(--spacing-sm) 0;
             font-size: 1rem;
         }
-        
+
         .lightbox-close {
             position: absolute;
             top: -40px;
@@ -267,7 +272,7 @@
             border: none;
             cursor: pointer;
         }
-        
+
         .lightbox-nav {
             position: absolute;
             top: 50%;
@@ -281,20 +286,21 @@
             opacity: 0.7;
             transition: opacity var(--transition-fast);
         }
-        
+
         .lightbox-nav:hover {
             opacity: 1;
         }
-        
+
         .lightbox-prev {
             left: 10px;
         }
-        
+
         .lightbox-next {
             right: 10px;
         }
     </style>
 </head>
+
 <body>
     <header class="site-header">
         <div class="container">
@@ -304,12 +310,12 @@
                     <h1>Vertical Forest s.r.o.</h1>
                 </a>
             </div>
-            
+
             <nav class="main-nav">
                 <button class="mobile-menu-toggle" aria-label="Otevřít menu">
                     <span class="hamburger-icon"></span>
                 </button>
-                
+
                 <ul class="nav-list">
                     <li class="nav-item"><a href="index.html">Úvod</a></li>
                     <li class="nav-item active"><a href="about.html">O&nbsp;nás</a></li>
@@ -336,15 +342,22 @@
             <div class="container">
                 <div class="section-content">
                     <h3>Kdo jsme</h3>
-                    <p>Společnost Vertical Forest s.r.o. byla založena s cílem přinést na trh <strong>udržitelná řešení</strong> v oblasti výroby paliv pro teplárny a elektrárny v ČR. Specializujeme se na zpracování dřevního odpadu a plastu z různých zdrojů, který následně přeměňujeme na tuhá paliva.</p>
-                    <p>Naší prioritou jsou výrobky z <strong>kvalitních</strong> vstupních materiálů a tím i výrobky, které odpovídají příslušným normám a vyhláškám.</p>
+                    <p>Společnost Vertical Forest s.r.o. byla založena s cílem přinést na trh <strong>udržitelná
+                            řešení</strong> v oblasti výroby paliv pro teplárny a elektrárny v ČR. Specializujeme se na
+                        zpracování dřevního odpadu a plastu z různých zdrojů, který následně přeměňujeme na tuhá paliva.
+                    </p>
+                    <p>Naší prioritou jsou výrobky z <strong>kvalitních</strong> vstupních materiálů a tím i výrobky,
+                        které odpovídají příslušným normám a vyhláškám.</p>
                 </div>
-                
+
                 <div class="mission-vision">
                     <div class="mission-box">
                         <h3>Naše poslání</h3>
-                        <p>Aktivně přispívat k <strong>ochraně životního prostředí</strong> a podpoře zdrojů energie prostřednictvím <strong>udržitelného</strong> zpracování dřevního odpadu a výroby <strong>vysoce kvalitních</strong> tuhých paliv.</p>
-                        <p>Současně s tím příspíváme k <strong>podpoře dekarbonizace</strong> (nahrazení uhlí) a ke <strong>snížení množství</strong> vkládaného odpadu na skládky.</p>
+                        <p>Aktivně přispívat k <strong>ochraně životního prostředí</strong> a podpoře zdrojů energie
+                            prostřednictvím <strong>udržitelného</strong> zpracování dřevního odpadu a výroby
+                            <strong>vysoce kvalitních</strong> tuhých paliv.</p>
+                        <p>Současně s tím příspíváme k <strong>podpoře dekarbonizace</strong> (nahrazení uhlí) a ke
+                            <strong>snížení množství</strong> vkládaného odpadu na skládky.</p>
                     </div>
                 </div>
             </div>
@@ -357,61 +370,78 @@
                 <div class="values-grid">
                     <div class="value-card">
                         <h4>Udržitelnost</h4>
-                        <p>Důraz na <strong>ekologicky šetrné</strong> postupy a využívání jinak nevyužitelných zdrojů.</p>
+                        <p>Důraz na <strong>ekologicky šetrné</strong> postupy a využívání jinak nevyužitelných zdrojů.
+                        </p>
                     </div>
-                    
+
                     <div class="value-card">
                         <h4>Kvalita</h4>
-                        <p>Zajištění <strong>stálé</strong> a <strong>vysoké kvality</strong> našich produktů a služeb.</p>
+                        <p>Zajištění <strong>stálé</strong> a <strong>vysoké kvality</strong> našich produktů a služeb.
+                        </p>
                     </div>
-                    
+
                     <div class="value-card">
                         <h4>Spolehlivost</h4>
                         <p>Budování <strong>dlouhodobých</strong> vztahů s našimi zákazníky a partnery.</p>
                     </div>
-                    
+
                     <div class="value-card">
                         <h4>Inovace</h4>
-                        <p>Využívání <strong>nejpokročilejších</strong> technologií pro <strong>efektivní</strong> výrobu.</p>
+                        <p>Využívání <strong>nejpokročilejších</strong> technologií pro <strong>efektivní</strong>
+                            výrobu.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-          <!-- Certifications -->
-          <section class="certifications-section">
+        <!-- Certifications -->
+        <section class="certifications-section">
             <div class="container">
                 <h3 class="text-center">Certifikace</h3>
-                <p class="text-center">Naše závazky v oblasti udržitelnosti jsou podpořeny <strong>mezinárodně uznávanými</strong> certifikacemi:</p>
-                
+                <p class="text-center">Naše závazky v oblasti udržitelnosti jsou podpořeny <strong>mezinárodně
+                        uznávanými</strong> certifikacemi:</p>
+
                 <div class="sustainability-grid">
                     <div class="sustainability-card">
                         <div class="sustainability-icon">🏆</div>
                         <h4>Palivo z odpadní biomasy</h4>
                         <p>Certifikace našeho paliva z odpadní biomasy.</p>
                         <div class="gallery-item">
-                            <img src="assets/images/cert/certBio.webp" alt="Certifikát Palivo z odpadní biomasy" class="cert-image">
+                            <img src="assets/images/cert/certBio.webp" alt="Certifikát Palivo z odpadní biomasy"
+                                class="cert-image">
                             <div class="gallery-caption">Certifikát Palivo z odpadní biomasy</div>
                         </div>
                     </div>
-                    
+
                     <div class="sustainability-card">
                         <div class="sustainability-icon">🏆</div>
                         <h4>Pelety TAP</h4>
-                        <p>Certifikace průkazních zkoušek o jejich <strong>vysoké kvalitě</strong> a shodě dle vyhlášky č. 169/2023 Sb. .</p>
+                        <p>Certifikace průkazních zkoušek o jejich <strong>vysoké kvalitě</strong> a shodě dle vyhlášky
+                            č. 169/2023 Sb. .</p>
                         <div class="gallery-item">
                             <img src="assets/images/cert/certTAP.webp" alt="Certifikát Pelety TAP" class="cert-image">
                             <div class="gallery-caption">Certifikát Pelety TAP</div>
                         </div>
                     </div>
-                    
+
                     <div class="sustainability-card">
                         <div class="sustainability-icon">🏆</div>
                         <h4>KZR INIG</h4>
-                        <p>Certifikace, která potvrzuje shodu našich produktů <strong>udržitelné výroby</strong> biopaliv a biopaliv z biomasy.</p>
+                        <p>Certifikace, která potvrzuje shodu našich produktů <strong>udržitelné výroby</strong>
+                            biopaliv a biopaliv z biomasy.</p>
                         <div class="gallery-item">
                             <img src="assets/images/cert/certKZR.webp" alt="Certifikát KZR INIG" class="cert-image">
                             <div class="gallery-caption">Certifikát KZR INIG</div>
+                        </div>
+                    </div>
+                    <div class="sustainability-card">
+                        <div class="sustainability-icon">🏆</div>
+                        <h4>Plastová štěpka VF AP 03</h4>
+                        <p>Certifikát o výsledcích průkazních zkoušek a posouzení shody pro naše plastové uhlí.</p>
+                        <div class="gallery-item">
+                            <img src="assets/images/cert/certVFAP03.webp" alt="Certifikát Plastová štěpka VF AP 03"
+                                class="cert-image">
+                            <div class="gallery-caption">Certifikát Plastová štěpka VF AP 03</div>
                         </div>
                     </div>
                 </div>
@@ -435,7 +465,7 @@
                     <h3>Vertical Forest s.r.o.</h3>
                     <p>Zpracování odpadů a výroba ekologicky šetrných tuhých paliv.</p>
                 </div>
-                
+
                 <div class="footer-contact">
                     <h3>Kontaktní údaje</h3>
                     <address>
@@ -448,7 +478,7 @@
                         DIČ: CZ07582641
                     </address>
                 </div>
-                
+
                 <div class="footer-nav">
                     <h3>Navigace</h3>
                     <ul>
@@ -461,7 +491,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 Vertical Forest s.r.o. Všechna práva vyhrazena.</p>
                 <div class="footer-legal">
@@ -475,6 +505,7 @@
     <script src="assets/js/main.js" defer></script>
     <script src="assets/js/gallery.js" defer></script>
     <script src="assets/js/cookie-consent.js" defer></script>
-    
+
 </body>
+
 </html>

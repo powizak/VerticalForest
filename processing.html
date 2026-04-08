@@ -1,40 +1,45 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="cs">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Zpracování odpadu ve společnosti Vertical Forest s.r.o. - Přeměňujeme dřevní a plastový odpad na hodnotný zdroj energie. Efektivní a udržitelný proces výroby tuhých paliv.">
-    <meta name="keywords" content="zpracování odpadu, odpadní biomasa, plastový odpad, tuhá alternativní paliva, TAP, udržitelnost, ekologické palivo, Plzeň, Stod">
+    <meta name="description"
+        content="Zpracování odpadu ve společnosti Vertical Forest s.r.o. - Přeměňujeme dřevní a plastový odpad na hodnotný zdroj energie. Efektivní a udržitelný proces výroby tuhých paliv.">
+    <meta name="keywords"
+        content="zpracování odpadu, odpadní biomasa, plastový odpad, tuhá alternativní paliva, TAP, udržitelnost, ekologické palivo, Plzeň, Stod">
     <meta name="author" content="Vertical Forest s.r.o.">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.verticalforest.cz/processing.html">
     <meta property="og:title" content="Zpracování dřevního a plastového odpadu - Vertical Forest s.r.o.">
-    <meta property="og:description" content="Přeměňujeme dřevní a plastový odpad na hodnotný zdroj energie. Efektivní a udržitelný proces výroby tuhých paliv.">
+    <meta property="og:description"
+        content="Přeměňujeme dřevní a plastový odpad na hodnotný zdroj energie. Efektivní a udržitelný proces výroby tuhých paliv.">
     <meta property="og:image" content="assets/images/products/PM-L_009.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.verticalforest.cz/processing.html">
     <meta property="twitter:title" content="Zpracování dřevního a plastového odpadu - Vertical Forest s.r.o.">
-    <meta property="twitter:description" content="Přeměňujeme dřevní a plastový odpad na hodnotný zdroj energie. Efektivní a udržitelný proces výroby tuhých paliv.">
+    <meta property="twitter:description"
+        content="Přeměňujeme dřevní a plastový odpad na hodnotný zdroj energie. Efektivní a udržitelný proces výroby tuhých paliv.">
     <meta property="twitter:image" content="assets/images/products/PM-L_009.jpg">
-    
+
     <title>Zpracování dřevního a plastového odpadu - Vertical Forest s.r.o.</title>
     <!-- Google tag (gtag.js) - with Consent Mode v2 -->
     <!-- Google tag (gtag.js) - with Consent Mode v2 -->
     <script>
         // Initialize dataLayer first
         window.dataLayer = window.dataLayer || [];
-        window.gtag = function(){window.dataLayer.push(arguments);}
-        
+        window.gtag = function () { window.dataLayer.push(arguments); }
+
         // Store GA tracking ID in a global variable for consistency
         window.GA_TRACKING_ID = 'G-RKP8S23T31';
-        
+
         // Log dataLayer initialization
         console.log('dataLayer initialized');
-        
+
         // Default consent - everything denied except necessary
         gtag('consent', 'default', {
             'ad_storage': 'denied',
@@ -46,10 +51,10 @@
             'ad_personalization': 'denied',
             'wait_for_update': 500 // Wait for consent update before sending hits
         });
-        
+
         // Log consent initialization
         console.log('Default consent set in dataLayer');
-        
+
         // Initialize Google Analytics with robust configuration
         gtag('js', new Date());
         gtag('config', window.GA_TRACKING_ID, {
@@ -59,34 +64,34 @@
             'cookie_flags': 'SameSite=None;Secure',
             'cookie_update': true
         });
-        
+
         console.log('Google tag initialized in head with ID:', window.GA_TRACKING_ID);
     </script>
     <!-- Load GA script after dataLayer initialization -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RKP8S23T31"></script>
-    
+
     <!-- Add a callback to detect if GA is blocked and verify initialization -->
     <script>
-        window.addEventListener('load', function() {
-            setTimeout(function() {
+        window.addEventListener('load', function () {
+            setTimeout(function () {
                 console.log('Verifying Google Analytics initialization...');
-                
+
                 // Check if dataLayer contains consent information
                 var hasConsent = false;
                 var hasConfig = false;
-                
+
                 if (window.dataLayer) {
                     console.log('dataLayer length:', window.dataLayer.length);
-                    
+
                     for (var i = 0; i < window.dataLayer.length; i++) {
                         var item = window.dataLayer[i];
-                        
+
                         // Check for consent entries
                         if (item && typeof item === 'object' && '0' in item && item['0'] === 'consent') {
                             hasConsent = true;
                             console.log('Found consent in dataLayer at index', i, ':', item);
                         }
-                        
+
                         // Check for config entries
                         if (item && typeof item === 'object' && '0' in item &&
                             item['0'] === 'config' && item['1'] === window.GA_TRACKING_ID) {
@@ -95,7 +100,7 @@
                         }
                     }
                 }
-                
+
                 if (!hasConsent) {
                     console.warn('No consent found in dataLayer - this may cause tracking issues');
                     // Try to set consent again
@@ -112,7 +117,7 @@
                         });
                     }
                 }
-                
+
                 if (!hasConfig) {
                     console.warn('No config found in dataLayer - this may cause tracking issues');
                     // Try to configure again
@@ -124,23 +129,23 @@
                         });
                     }
                 }
-                
+
                 if (typeof ga === 'undefined' && typeof gtag === 'function') {
                     console.warn('Google Analytics might be blocked by an ad blocker');
                 }
             }, 2000);
         });
     </script>
-        
+
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/cookie-consent.css">
-    
+
     <style>
         /* Processing specific styles */
         .process-steps {
@@ -149,7 +154,7 @@
             gap: var(--spacing-lg);
             margin: var(--spacing-xl) 0;
         }
-        
+
         .process-step {
             background-color: var(--color-background);
             border-radius: var(--border-radius-md);
@@ -158,12 +163,12 @@
             position: relative;
             transition: transform var(--transition-medium), box-shadow var(--transition-medium);
         }
-        
+
         .process-step:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-md);
         }
-        
+
         .step-number {
             position: absolute;
             top: -20px;
@@ -179,44 +184,45 @@
             font-weight: bold;
             font-size: 1.2rem;
         }
-        
+
         .process-step h4 {
             margin-top: var(--spacing-md);
             color: var(--color-primary);
         }
-        
+
         .process-image {
             border-radius: var(--border-radius-md);
             overflow: hidden;
             margin: var(--spacing-lg) 0;
             box-shadow: var(--shadow-md);
         }
-        
+
         .process-image img {
             width: 100%;
             height: auto;
             display: block;
         }
-        
+
         /* Ensure videos are aligned at the same height */
         .process-overview {
             display: flex;
             flex-direction: column;
         }
-        
+
         .process-overview h3,
         .process-overview p {
             flex: 0 0 auto;
         }
-        
+
         .process-overview .process-image {
             flex: 1 1 auto;
             margin-top: auto;
-            height: 0;
-            padding-bottom: 100%; /* Maintain 1:1 aspect ratio */
+            /*height: 0;*/
+            padding-bottom: 100%;
+            /* Maintain 1:1 aspect ratio */
             position: relative;
         }
-        
+
         .process-overview .process-image video {
             position: absolute;
             top: 0;
@@ -225,19 +231,19 @@
             height: 100%;
             object-fit: cover;
         }
-        
+
         .benefits-list {
             list-style: none;
             padding: 0;
             margin: var(--spacing-md) 0;
         }
-        
+
         .benefits-list li {
             position: relative;
             padding-left: 1.5rem;
             margin-bottom: var(--spacing-sm);
         }
-        
+
         .benefits-list li::before {
             content: '✓';
             position: absolute;
@@ -245,20 +251,20 @@
             color: var(--color-primary);
             font-weight: bold;
         }
-        
+
         .process-flow {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin: var(--spacing-xl) 0;
         }
-        
+
         .flow-diagram {
             width: 100%;
             max-width: 800px;
             margin: var(--spacing-lg) 0;
         }
-        
+
         /* Two-column layout for desktop with section alignment */
         .processing-columns {
             display: flex;
@@ -266,43 +272,56 @@
             gap: var(--spacing-xl);
             margin: var(--spacing-xl) 0;
         }
-        
+
         .section-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: var(--spacing-xl);
         }
-        
+
         .processing-column {
-            display: contents; /* This allows children to be placed directly in the grid */
+            display: contents;
+            /* This allows children to be placed directly in the grid */
         }
-        
+
+        .product-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: start;
+        }
+
         /* Single column for mobile */
         @media (max-width: 768px) {
             .section-row {
                 grid-template-columns: 1fr;
             }
-            
+
             .process-steps {
                 grid-template-columns: 1fr;
             }
-            
+
             /* Ensure wood waste appears before plastic waste on mobile */
             .processing-column:nth-child(2) {
                 order: 2;
             }
-            
+
             .processing-column:nth-child(1) {
                 order: 1;
             }
-            
+
             /* Reset display property for mobile */
             .processing-column {
                 display: block;
             }
+
+            .product-content {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
     <header class="site-header">
         <div class="container">
@@ -312,12 +331,12 @@
                     <h1>Vertical Forest s.r.o.</h1>
                 </a>
             </div>
-            
+
             <nav class="main-nav">
                 <button class="mobile-menu-toggle" aria-label="Otevřít menu">
                     <span class="hamburger-icon"></span>
                 </button>
-                
+
                 <ul class="nav-list">
                     <li class="nav-item"><a href="index.html">Úvod</a></li>
                     <li class="nav-item"><a href="about.html">O&nbsp;nás</a></li>
@@ -349,16 +368,25 @@
                 <div class="processing-column">
                     <!-- Plastic Waste Content -->
                 </div>
-                
+
                 <!-- Process Overview Row -->
                 <div class="section-row">
                     <!-- Wood Waste Overview -->
                     <section class="process-overview">
                         <h3>Přístup ke zpracování dřevního odpadu</h3>
-                        <p>Ve Vertical Forest s.r.o. věříme, že dřevní odpad má vysokou hodnotu. Proto se zaměřujeme na jeho <strong>efektivní a udržitelné</strong> zpracování. Tento proces zahrnuje <strong>pečlivý výběr</strong> a <strong>kontrolu kvality</strong> vstupního materiálu z <strong>lokálních zdrojů</strong>. </p>
-                        <p>Dřevní odpad je následně separován od kovů a minerálů a tříděn, aby se dosáhlo <strong>optimálních vlastností</strong> pro výrobu tuhých paliv.</p>
-                        <p>K vlastnímu zpracování se používají pomaloběžné a rychloběžné drtiče, nakladače a překladače <strong>pro optimalizaci</strong> celé výroby. Nedílnou součástí jsou <strong>kvalitní separátory kovu</strong>.</p>
-                        
+                        <p>Ve Vertical Forest s.r.o. věříme, že dřevní odpad má vysokou hodnotu. Proto se zaměřujeme na
+                            jeho <strong>efektivní a udržitelné</strong> zpracování. Tento proces zahrnuje
+                            <strong>pečlivý výběr</strong> a <strong>kontrolu kvality</strong> vstupního materiálu z
+                            <strong>lokálních zdrojů</strong>.
+                        </p>
+                        <p>Dřevní odpad je následně separován od kovů a minerálů a tříděn, aby se dosáhlo
+                            <strong>optimálních vlastností</strong> pro výrobu tuhých paliv.
+                        </p>
+                        <p>K vlastnímu zpracování se používají pomaloběžné a rychloběžné drtiče, nakladače a překladače
+                            <strong>pro optimalizaci</strong> celé výroby. Nedílnou součástí jsou <strong>kvalitní
+                                separátory kovu</strong>.
+                        </p>
+
                         <div class="process-image">
                             <video id="plasticWasteVideo" preload="none" muted loop playsinline>
                                 <source src="assets/images/video/StepkyPasv1.mp4" type="video/mp4">
@@ -366,51 +394,96 @@
                             </video>
                         </div>
                     </section>
-                    
+
                     <!-- Plastic Waste Overview -->
                     <section class="process-overview">
                         <h3>Přístup k využití plastového odpadu</h3>
-                        <p>Ve Vertical Forest s.r.o. vnímáme plastový odpad jako <strong>cenný zdroj energie</strong>, nikoliv jako problém. Zaměřujeme se na materiály, které <strong>nelze efektivně recyklovat</strong>, a přeměňujeme je na tuhá alternativní paliva (TAP).</p>
-                        <p>Proces dodávek vstupního materiálu TAP v současné době řešíme na úrovni externího partnera. Ten zajišťuje <strong>dohodnutou frakci</strong> a <strong>recepturu</strong> vstupních surovin.</p>
-                        <p>Klíčovou roli hraje <strong>minimální objem</strong> nežádoucích prvků (především chlóru), které jasně vymezuje vyhláška č.169/2023 Sb. .</p>
-                        
+                        <p>Ve Vertical Forest s.r.o. vnímáme plastový odpad jako <strong>cenný zdroj energie</strong>,
+                            nikoliv jako problém. Zaměřujeme se na materiály, které <strong>nelze efektivně
+                                recyklovat</strong>, a přeměňujeme je na tuhá alternativní paliva (TAP).</p>
+                        <p>Proces dodávek vstupního materiálu TAP v současné době řešíme na úrovni externího partnera.
+                            Ten zajišťuje <strong>dohodnutou frakci</strong> a <strong>recepturu</strong> vstupních
+                            surovin.</p>
+                        <p>Klíčovou roli hraje <strong>minimální objem</strong> nežádoucích prvků (především chlóru),
+                            které jasně vymezuje vyhláška č.169/2023 Sb. .</p>
+
                         <div class="process-image">
                             <video id="woodWasteVideo" preload="none" muted loop playsinline>
                                 <source src="assets/images/video/TAPv2.mp4" type="video/mp4">
                                 Váš prohlížeč nepodporuje přehrávání videa.
                             </video>
-                        </div> 
+                        </div>
                     </section>
                 </div>
-                                
+
                 <!-- Benefits Row -->
                 <div class="section-row">
                     <!-- Wood Waste Benefits -->
                     <section class="benefits-section bg-light" style="padding: 2em;">
                         <h3>Výhody našeho zpracování dřevního odpadu</h3>
-                        
+
                         <ul class="benefits-list">
-                            <li><strong>Udržitelnost</strong> - Přeměňujeme odpad na hodnotný zdroj energie, čímž přispíváme k cirkulární ekonomice.</li>
-                            <li><strong>Lokální zdroje</strong> - Využíváme dřevní odpad z lokálních zdrojů, čímž snižujeme uhlíkovou stopu spojenou s dopravou.</li>
-                            <li><strong>Snížení skládkování</strong> - Omezujeme množství odpadu končícího na skládkách.</li>
-                            <li><strong>Vysoká kvalita</strong> - Díky pečlivému výběru vstupního materiálu a moderním technologiím dosahujeme vysoké kvality finálních produktů.</li>
-                            <li><strong>Energetická účinnost</strong> - Naše výrobní procesy jsou optimalizovány pro minimální spotřebu energie.</li>
+                            <li><strong>Udržitelnost</strong> - Přeměňujeme odpad na hodnotný zdroj energie, čímž
+                                přispíváme k cirkulární ekonomice.</li>
+                            <li><strong>Lokální zdroje</strong> - Využíváme dřevní odpad z lokálních zdrojů, čímž
+                                snižujeme uhlíkovou stopu spojenou s dopravou.</li>
+                            <li><strong>Snížení skládkování</strong> - Omezujeme množství odpadu končícího na skládkách.
+                            </li>
+                            <li><strong>Vysoká kvalita</strong> - Díky pečlivému výběru vstupního materiálu a moderním
+                                technologiím dosahujeme vysoké kvality finálních produktů.</li>
+                            <li><strong>Energetická účinnost</strong> - Naše výrobní procesy jsou optimalizovány pro
+                                minimální spotřebu energie.</li>
                         </ul>
                     </section>
                     <!-- Plastic Waste Benefits -->
                     <section class="benefits-section bg-light" style="padding: 2em;">
                         <h3>Výhody našeho zpracování plastového odpadu</h3>
-                        
+
                         <ul class="benefits-list">
-                            <li><strong>Energetické využití</strong> - Přeměňujeme problematický odpad na cenný zdroj energie.</li>
-                            <li><strong>Snížení skládkování</strong> - Omezujeme množství odpadu končícího na skládkách.</li>
-                            <li><strong>Náhrada fosilních paliv</strong> - TAP částečně nahrazuje fosilní paliva k čemuž míříme díky obecné dekarboinzaci</li>
-                            <li><strong>Cirkulární ekonomika</strong> - Využíváme materiály, které by jinak nebyly využity.</li>
-                            <li><strong>Minimalizace emisí</strong> - Pokročilé čištění spalin minimalizuje dopady na životní prostředí.</li>
-                            <li><strong>Ekonomická efektivita</strong> - Nabízíme výhodné řešení pro zpracování plastového odpadu.</li>
+                            <li><strong>Energetické využití</strong> - Přeměňujeme problematický odpad na cenný zdroj
+                                energie.</li>
+                            <li><strong>Snížení skládkování</strong> - Omezujeme množství odpadu končícího na skládkách.
+                            </li>
+                            <li><strong>Náhrada fosilních paliv</strong> - TAP částečně nahrazuje fosilní paliva k čemuž
+                                míříme díky obecné dekarboinzaci</li>
+                            <li><strong>Cirkulární ekonomika</strong> - Využíváme materiály, které by jinak nebyly
+                                využity.</li>
+                            <li><strong>Minimalizace emisí</strong> - Pokročilé čištění spalin minimalizuje dopady na
+                                životní prostředí.</li>
+                            <li><strong>Ekonomická efektivita</strong> - Nabízíme výhodné řešení pro zpracování
+                                plastového odpadu.</li>
                         </ul>
                     </section>
                 </div>
+            </div>
+
+            <div style="margin-top: 4em;">
+                <section class="process-overview">
+                    <h2
+                        style="color: var(--color-primary); border-bottom: 2px solid var(--color-primary); padding-bottom: 0.5em; margin-bottom: 1em;">
+                        Zpracování přetoků z lisovaných plastů</h2>
+                    <div class="product-content">
+                        <div class="process-text">
+                            <p>Třetím pilířem naší výroby je <strong>zpracování specifického plastového
+                                    odpadu</strong> z průmyslové
+                                výroby lisovaných výrobků. Jedná se o materiál, který výrobci již nemohou
+                                znovu přetavit, <strong>a pro běžný trh se stává nevyužitelným</strong>.</p>
+                            <p>S pomocí špičkové technologie, konkrétně průmyslového drtiče <strong>UNTHA XR
+                                    Shredder XR3000</strong>, <strong>dokážeme </strong>tyto houževnaté kusy plastů
+                                (včetně zmetků z
+                                výroby retardérů) <strong>zpracovat na frakci o velikosti již od 3,5 cm</strong>.
+                                Výsledkem je takzvané "plastové uhlí", které je připraveno k přimíchání do
+                                klasického uhlí (v objemu 5–10 %) a <strong>k efektivnímu spálení s takřka nulovým
+                                    zůstatkem
+                                    popela</strong>.</p>
+                        </div>
+
+                        <div class="process-image" style="box-shadow: none; padding-bottom: 0;">
+                            <img src="assets/images/gallery/xr3000_noBckgnd.webp" alt="Stroj UNTHA XR Shredder XR3000"
+                                style="border-radius: var(--border-radius-md); box-shadow: var(--shadow-md);">
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
 
@@ -431,7 +504,7 @@
                     <h3>Vertical Forest s.r.o.</h3>
                     <p>Zpracování odpadů a výroba ekologicky šetrných tuhých paliv.</p>
                 </div>
-                
+
                 <div class="footer-contact">
                     <h3>Kontaktní údaje</h3>
                     <address>
@@ -444,7 +517,7 @@
                         DIČ: CZ07582641
                     </address>
                 </div>
-                
+
                 <div class="footer-nav">
                     <h3>Navigace</h3>
                     <ul>
@@ -457,7 +530,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 Vertical Forest s.r.o. Všechna práva vyhrazena.</p>
                 <div class="footer-legal">
@@ -469,26 +542,26 @@
 
     <!-- JavaScript -->
     <script src="assets/js/main.js" defer></script>
-    
+
     <!-- Video loading and autoplay script -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const woodWasteVideo = document.getElementById('woodWasteVideo');
             const plasticWasteVideo = document.getElementById('plasticWasteVideo');
-            
+
             // Function to start loading videos
             function loadVideos() {
                 woodWasteVideo.preload = 'auto';
                 plasticWasteVideo.preload = 'auto';
-                
+
                 // Start loading the videos
                 woodWasteVideo.load();
                 plasticWasteVideo.load();
-                
+
                 // Track loading state
                 let woodVideoLoaded = false;
                 let plasticVideoLoaded = false;
-                
+
                 // Check if videos are ready to play
                 function checkAndPlay() {
                     if (woodVideoLoaded && plasticVideoLoaded) {
@@ -496,19 +569,19 @@
                         plasticWasteVideo.play();
                     }
                 }
-                
+
                 // Event listeners for when videos are loaded enough to play
-                woodWasteVideo.addEventListener('canplay', function() {
+                woodWasteVideo.addEventListener('canplay', function () {
                     woodVideoLoaded = true;
                     checkAndPlay();
                 });
-                
-                plasticWasteVideo.addEventListener('canplay', function() {
+
+                plasticWasteVideo.addEventListener('canplay', function () {
                     plasticVideoLoaded = true;
                     checkAndPlay();
                 });
             }
-            
+
             // Use requestIdleCallback if available, otherwise use setTimeout
             if ('requestIdleCallback' in window) {
                 requestIdleCallback(loadVideos);
@@ -517,9 +590,10 @@
             }
         });
     </script>
-    
+
     <script src="assets/js/cookie-consent.js" defer></script>
-    
+
 
 </body>
+
 </html>
