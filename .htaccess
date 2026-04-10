@@ -9,6 +9,13 @@
 
 RewriteEngine On
 
+# MIME typ a konfigurace pro llms.txt (AI agenty a vyhledávání)
+<Files "llms.txt">
+    Header set Content-Type "text/plain; charset=utf-8"
+    Header set X-Robots-Tag "index, follow"
+    Header set Access-Control-Allow-Origin "*"
+</Files>
+
 # Sitemap location
 <IfModule mod_headers.c>
     Header set X-Robots-Tag "index, follow"
